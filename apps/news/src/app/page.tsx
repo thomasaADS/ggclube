@@ -63,15 +63,17 @@ export default function NewsHomePage() {
           <h2 className="text-xs font-black text-ink-900 tracking-wider uppercase border-b-2 border-accent-500 pb-2 mb-8 inline-block">כתבות אחרונות</h2>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { title: "לאו מרגטס — האישה הראשונה בשולחן הגמר מאז 1995", cat: "WSOP 2025", excerpt: "השחקנית הספרדייה הגיעה למקום ה-7 ב-Main Event. לא היתה אישה בשולחן הגמר 30 שנה.", time: "4 דק׳" },
-              { title: "פונאט פונסרי: שחקן השנה הראשון מאסיה", cat: "GPI 2025", excerpt: "התאילנדי סיים עם 61 קאשים, 7 זכיות ו-$10.9M. שבר את מחסום היבשת.", time: "5 דק׳" },
-              { title: "קריסטן פוקסן שוברת את השיא: $4.6M ב-2025", cat: "שחקנים", excerpt: "פוקסן עקפה את ונסה סלבסט והפכה לשחקנית הפוקר עם הרווחים הגבוהים בהיסטוריה.", time: "4 דק׳" },
-              { title: "האחים מיזרצ׳י: 13 צמידים למשפחה אחת", cat: "פרופיל", excerpt: "מייקל (8) ורוברט (5) מיזרצ׳י — האחים הישראלים-אמריקאים עם הכי הרבה צמידים משפחתיים בהיסטוריה.", time: "6 דק׳" },
-              { title: "ג׳סי לוניס: $13.3M בשנה אחת — מספר 1 בעולם", cat: "דירוגים", excerpt: "56 קאשים, 35 שולחנות גמר, 9 זכיות. הכי טוב ב-2025 ללא עוררין.", time: "5 דק׳" },
-              { title: "WSOP 2025 במספרים: 100 אירועים, שיאים חדשים", cat: "WSOP", excerpt: "הסדרה הגדולה ביותר בהיסטוריה. אירוע אחד נשלל בגלל חשד ל-chip dumping.", time: "7 דק׳" },
+              { title: "לאו מרגטס — האישה הראשונה בשולחן הגמר מאז 1995", cat: "WSOP 2025", excerpt: "השחקנית הספרדייה הגיעה למקום ה-7 ב-Main Event. לא היתה אישה בשולחן הגמר 30 שנה.", time: "4 דק׳", img: "/players/kristen-foxen.jpg" },
+              { title: "פונאט פונסרי: שחקן השנה הראשון מאסיה", cat: "GPI 2025", excerpt: "התאילנדי סיים עם 61 קאשים, 7 זכיות ו-$10.9M. שבר את מחסום היבשת.", time: "5 דק׳", img: "/players/punsri.jpg" },
+              { title: "קריסטן פוקסן שוברת את השיא: $4.6M ב-2025", cat: "שחקנים", excerpt: "פוקסן עקפה את ונסה סלבסט והפכה לשחקנית הפוקר עם הרווחים הגבוהים בהיסטוריה.", time: "4 דק׳", img: "/players/foxen.jpg" },
+              { title: "האחים מיזרצ׳י: 13 צמידים למשפחה אחת", cat: "פרופיל", excerpt: "מייקל (8) ורוברט (5) מיזרצ׳י — האחים הישראלים-אמריקאים עם הכי הרבה צמידים משפחתיים בהיסטוריה.", time: "6 דק׳", img: "/players/michael-mizrachi.jpg" },
+              { title: "ג׳סי לוניס: $13.3M בשנה אחת — מספר 1 בעולם", cat: "דירוגים", excerpt: "56 קאשים, 35 שולחנות גמר, 9 זכיות. הכי טוב ב-2025 ללא עוררין.", time: "5 דק׳", img: "/players/lonis.jpg" },
+              { title: "WSOP 2025 במספרים: 100 אירועים, שיאים חדשים", cat: "WSOP", excerpt: "הסדרה הגדולה ביותר בהיסטוריה. אירוע אחד נשלל בגלל חשד ל-chip dumping.", time: "7 דק׳", img: "/players/deeb.jpg" },
             ].map((article, i) => (
               <a key={i} href="#" className="group block">
-                <div className="aspect-[16/10] rounded-lg bg-paper-200 mb-4" />
+                <div className="aspect-[16/10] rounded-lg bg-paper-200 mb-4 overflow-hidden">
+                  <img src={article.img} alt={article.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                </div>
                 <span className="text-[10px] font-bold text-accent-500">{article.cat}</span>
                 <h3 className="text-base font-black text-ink-900 mt-1 leading-snug group-hover:text-accent-500 transition-colors" style={{ fontFamily: "'Frank Ruhl Libre', serif" }}>
                   {article.title}
@@ -90,14 +92,14 @@ export default function NewsHomePage() {
           <h2 className="text-xs font-black text-ink-900 tracking-wider uppercase border-b-2 border-accent-500 pb-2 mb-8 inline-block">שחקנים ישראליים בכותרות</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
-              { name: "מייקל מיזרצ׳י", title: "8 צמידי WSOP, אלוף Main Event 2025", desc: "$29M+ ברווחים. Poker Players Championship 4 פעמים — שיא. היכל התהילה 2025.", href: "/articles/mizrachi-wsop-2025", photo: "/players/mizrachi.jpg" },
-              { name: "אלי אלעזרא", title: "5 צמידים, היכל התהילה 2021", desc: "יליד ירושלים. הישראלי הראשון בהיכל התהילה. אגדת PLO בלאס וגאס.", href: "/articles/eli-elezra", photo: "/players/mizrachi.jpg" },
-              { name: "רוברט מיזרצ׳י", title: "5 צמידי WSOP", desc: "אחיו של מייקל. ביקש שינגנו ׳התקווה׳ בטקס הצמיד ב-2024.", href: "#", photo: "/players/deeb.jpg" },
-              { name: "מתן קרקוב", title: "אלוף EPT פראג 2025 — €778K", desc: "הישראלי השני שזוכה ב-EPT Main Event. כתב את הביוגרפיה של אלעזרא.", href: "/articles/krakow-ept", photo: "/players/negreanu.jpg" },
-              { name: "תימור מרגולין", title: "3 צמידי WSOP", desc: "שניים ב-2018, שלישי ב-2024. רווחי WSOP: $1.75M+.", href: "#", photo: "/players/foxen.jpg" },
-              { name: "רפי אלהרר", title: "$1.23M מבאיין $525", desc: "ניצח 23,249 שחקנים ב-WSOP Super Circuit. מקום 3 ב-Big 50.", href: "/articles/rafi-elharar", photo: "/players/punsri.jpg" },
-              { name: "אמיר להבות", title: "November Nine 2013", desc: "הישראלי הראשון בשולחן הגמר של Main Event. $6.25M ברווחים.", href: "#", photo: "/players/lonis.jpg" },
-              { name: "אורי גלבוע", title: "אלוף EPT סוצ׳י 2019", desc: "הישראלי הראשון שזכה ב-EPT Main Event. בגיל 61 — האלוף הכי מבוגר.", href: "#", photo: "/players/deeb.jpg" },
+              { name: "מייקל מיזרצ׳י", title: "8 צמידי WSOP, אלוף Main Event 2025", desc: "$29M+ ברווחים. Poker Players Championship 4 פעמים — שיא. היכל התהילה 2025.", href: "/articles/mizrachi-wsop-2025", photo: "/players/michael-mizrachi.jpg" },
+              { name: "אלי אלעזרא", title: "5 צמידים, היכל התהילה 2021", desc: "יליד ירושלים. הישראלי הראשון בהיכל התהילה. אגדת PLO בלאס וגאס.", href: "/articles/eli-elezra", photo: "/players/eli-elezra.jpg" },
+              { name: "רוברט מיזרצ׳י", title: "5 צמידי WSOP", desc: "אחיו של מייקל. ביקש שינגנו ׳התקווה׳ בטקס הצמיד ב-2024.", href: "#", photo: "/players/robert-mizrachi.jpg" },
+              { name: "מתן קרקוב", title: "אלוף EPT פראג 2025 — €778K", desc: "הישראלי השני שזוכה ב-EPT Main Event. כתב את הביוגרפיה של אלעזרא.", href: "/articles/krakow-ept", photo: "/players/matan-krakow.jpg" },
+              { name: "תימור מרגולין", title: "3 צמידי WSOP", desc: "שניים ב-2018, שלישי ב-2024. רווחי WSOP: $1.75M+.", href: "#", photo: "/players/timur-margolin.jpg" },
+              { name: "רפי אלהרר", title: "$1.23M מבאיין $525", desc: "ניצח 23,249 שחקנים ב-WSOP Super Circuit. מקום 3 ב-Big 50.", href: "/articles/rafi-elharar", photo: "/players/rafi-elharar.jpg" },
+              { name: "אמיר להבות", title: "November Nine 2013", desc: "הישראלי הראשון בשולחן הגמר של Main Event. $6.25M ברווחים.", href: "#", photo: "/players/amir-lehavot.jpg" },
+              { name: "אורי גלבוע", title: "אלוף EPT סוצ׳י 2019", desc: "הישראלי הראשון שזכה ב-EPT Main Event. בגיל 61 — האלוף הכי מבוגר.", href: "#", photo: "/players/uri-gilboa.jpg" },
             ].map((player) => (
               <a key={player.name} href={player.href} className="group rounded-lg bg-card border border-paper-300 overflow-hidden hover:shadow-elevated transition-all">
                 <div className="aspect-[3/2] overflow-hidden bg-paper-200">
