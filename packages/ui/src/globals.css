@@ -1,0 +1,171 @@
+@import "tailwindcss";
+
+/*
+ * THE OBSIDIAN LEDGER DESIGN SYSTEM
+ * GGClube Master Design Tokens
+ * Premium dark luxury + emerald accent + platinum typography
+ */
+
+@theme {
+  /* === OBSIDIAN PALETTE === */
+  --color-obsidian-950: #08090a;
+  --color-obsidian-900: #0d0f11;
+  --color-obsidian-800: #141618;
+  --color-obsidian-700: #1c1f22;
+  --color-obsidian-600: #25292d;
+  --color-obsidian-500: #363b40;
+
+  /* === GRAPHITE === */
+  --color-graphite-900: #1a1d20;
+  --color-graphite-800: #22262a;
+  --color-graphite-700: #2d3237;
+  --color-graphite-600: #3a4046;
+  --color-graphite-500: #4a5158;
+  --color-graphite-400: #5f676f;
+
+  /* === EMERALD ACCENT === */
+  --color-emerald-900: #064e3b;
+  --color-emerald-800: #065f46;
+  --color-emerald-700: #047857;
+  --color-emerald-600: #059669;
+  --color-emerald-500: #10b981;
+  --color-emerald-400: #34d399;
+  --color-emerald-300: #6ee7b7;
+
+  /* === PLATINUM === */
+  --color-platinum-100: #f5f5f4;
+  --color-platinum-200: #e7e5e4;
+  --color-platinum-300: #d6d3d1;
+  --color-platinum-400: #a8a29e;
+  --color-platinum-500: #78716c;
+
+  /* === WARM IVORY (text) === */
+  --color-ivory-50: #faf9f7;
+  --color-ivory-100: #f0eeeb;
+  --color-ivory-200: #e2dfdb;
+  --color-ivory-300: #cdc8c2;
+
+  /* === ALERT RED === */
+  --color-alert-500: #dc2626;
+  --color-alert-600: #b91c1c;
+  --color-alert-400: #f87171;
+
+  /* === TRUST GOLD === */
+  --color-trust-500: #b8860b;
+  --color-trust-400: #d4a017;
+
+  /* === CLUBGG RED (Union Primary) === */
+  --color-club-red-900: #4a0e0e;
+  --color-club-red-800: #6b1414;
+  --color-club-red-700: #8b1a1a;
+  --color-club-red-600: #a82020;
+  --color-club-red-500: #c62828;
+  --color-club-red-400: #e53935;
+  --color-club-red-300: #ef5350;
+
+  /* === CLUBGG GOLD (Union Accent) === */
+  --color-club-gold-700: #8b6914;
+  --color-club-gold-600: #b8860b;
+  --color-club-gold-500: #d4a017;
+  --color-club-gold-400: #efb541;
+  --color-club-gold-300: #ffd54f;
+
+  /* === STATUS COLORS === */
+  --color-verified: #059669;
+  --color-unverified: #78716c;
+  --color-under-review: #d4a017;
+  --color-concern: #dc2626;
+
+  /* === TYPOGRAPHY === */
+  --font-display: 'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif;
+  --font-body: 'Inter', 'SF Pro Text', -apple-system, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+
+  /* === SPACING SCALE (8px base) === */
+  --spacing-px: 1px;
+  --spacing-0: 0px;
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-10: 40px;
+  --spacing-12: 48px;
+  --spacing-16: 64px;
+  --spacing-20: 80px;
+  --spacing-24: 96px;
+  --spacing-32: 128px;
+
+  /* === BORDER RADIUS === */
+  --radius-none: 0px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-pill: 9999px;
+
+  /* === SHADOWS (Obsidian Ledger) === */
+  --shadow-subtle: 0 1px 2px rgba(0,0,0,0.4);
+  --shadow-card: 0 2px 8px rgba(0,0,0,0.5), 0 1px 2px rgba(0,0,0,0.3);
+  --shadow-elevated: 0 8px 24px rgba(0,0,0,0.6), 0 2px 8px rgba(0,0,0,0.4);
+  --shadow-glow-emerald: 0 0 20px rgba(16,185,129,0.15);
+  --shadow-glow-platinum: 0 0 20px rgba(168,162,158,0.1);
+
+  /* === TRANSITIONS === */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-cinematic: 700ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* === Z-INDEX === */
+  --z-base: 0;
+  --z-card: 10;
+  --z-sticky: 20;
+  --z-nav: 30;
+  --z-overlay: 40;
+  --z-modal: 50;
+  --z-toast: 60;
+}
+
+/* === BASE LAYER === */
+@layer base {
+  * {
+    border-color: var(--color-graphite-700);
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: var(--color-obsidian-950);
+    color: var(--color-ivory-100);
+    line-height: 1.6;
+  }
+
+  ::selection {
+    background-color: var(--color-emerald-800);
+    color: var(--color-ivory-50);
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-obsidian-900);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-graphite-600);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-graphite-500);
+  }
+}

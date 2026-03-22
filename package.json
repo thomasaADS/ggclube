@@ -1,0 +1,22 @@
+{
+  "name": "ggclube",
+  "private": true,
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "lint": "turbo lint",
+    "dev:union": "turbo dev --filter=@ggclube/union",
+    "dev:news": "turbo dev --filter=@ggclube/news",
+    "dev:academy": "turbo dev --filter=@ggclube/academy",
+    "build:union": "turbo build --filter=@ggclube/union",
+    "build:news": "turbo build --filter=@ggclube/news",
+    "build:academy": "turbo build --filter=@ggclube/academy"
+  },
+  "devDependencies": {
+    "turbo": "^2.5.0"
+  },
+  "packageManager": "pnpm@10.12.1",
+  "engines": {
+    "node": ">=20"
+  }
+}
