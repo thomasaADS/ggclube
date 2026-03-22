@@ -1,1 +1,58 @@
-@import "@ggclube/ui/globals.css";
+@import "tailwindcss";
+
+/*
+ * CLUBGG ACADEMY — Dark Premium Education
+ * Matches ClubGG Union brand (dark + red/gold)
+ * MasterClass-inspired cinematic feel
+ */
+
+@theme {
+  /* === DARK BASE === */
+  --color-bg: #0a0a0b;
+  --color-bg-card: #141416;
+  --color-bg-elevated: #1c1c1f;
+  --color-bg-surface: #232327;
+
+  /* === TEXT === */
+  --color-t-50: #fafaf9;
+  --color-t-100: #f0eeeb;
+  --color-t-200: #d6d3cf;
+  --color-t-300: #a8a29e;
+  --color-t-400: #78716c;
+  --color-t-500: #57534e;
+
+  /* === RED ACCENT (ClubGG) === */
+  --color-red-600: #a82020;
+  --color-red-500: #c62828;
+  --color-red-400: #e53935;
+
+  /* === GOLD === */
+  --color-gold-500: #d4a017;
+  --color-gold-400: #efb541;
+
+  /* === GREEN (progress/success) === */
+  --color-ok-500: #16a34a;
+
+  /* === BORDERS === */
+  --color-line: #2a2a2e;
+  --color-line-hover: #3a3a3f;
+
+  --font-body: 'Inter', -apple-system, system-ui, sans-serif;
+
+  --shadow-card: 0 2px 8px rgba(0,0,0,0.4);
+  --shadow-glow: 0 0 20px rgba(198,40,40,0.1);
+}
+
+@layer base {
+  html { -webkit-font-smoothing: antialiased; }
+  body {
+    font-family: var(--font-body);
+    background-color: var(--color-bg);
+    color: var(--color-t-200);
+    line-height: 1.6;
+  }
+  ::selection { background-color: rgba(198,40,40,0.3); color: white; }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--color-bg); }
+  ::-webkit-scrollbar-thumb { background: var(--color-bg-surface); border-radius: 3px; }
+}

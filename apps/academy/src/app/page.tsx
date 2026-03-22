@@ -1,267 +1,259 @@
-import { Button, Card, CardContent, Section, SectionLabel, SectionTitle, SectionDescription, Badge } from "@ggclube/ui";
-import { ArrowRight, BookOpen, Users, Trophy, Play, CheckCircle, Star, Target, Layers, Zap, BarChart3, Shield } from "lucide-react";
+import { ArrowLeft, BookOpen, Users, Trophy, Play, CheckCircle, Star, Target, Layers, Zap, MessageCircle } from "lucide-react";
 
 const COURSES = [
-  { title: "Poker Fundamentals: The Complete Foundation", level: "Beginner", lessons: 24, hours: "8+", desc: "Build an unshakable understanding of position, pot odds, hand reading, and decision-making frameworks. Where every serious player starts." },
-  { title: "Tournament Strategy Masterclass", level: "Intermediate", lessons: 36, hours: "12+", desc: "ICM pressure, bubble dynamics, final table adjustments, and the mental frameworks that separate breakeven tournament players from consistent winners." },
-  { title: "Cash Game Exploits: Live & Online", level: "Advanced", lessons: 18, hours: "6+", desc: "Identify and exploit population tendencies, adjust bet sizing for maximum extraction, and develop a session-management system that compounds over time." },
-  { title: "The Mental Game: Performance Under Pressure", level: "All Levels", lessons: 12, hours: "4+", desc: "Tilt management, variance tolerance, focus rituals, and the psychological edge that every professional player eventually builds — or wishes they had." },
+  { title: "יסודות הפוקר", level: "מתחילים", lessons: 24, desc: "פוזיציה, סיכויי פוט, קריאת ידיים — הבסיס.", img: "/courses/cards1.jpg", href: "/courses/fundamentals" },
+  { title: "Masterclass טורנירים", level: "בינוני", lessons: 36, desc: "ICM, באבל, שולחן גמר — הכל.", img: "/courses/chips1.jpg", href: "/courses/tournament" },
+  { title: "ניצול בקאש", level: "מתקדם", lessons: 18, desc: "אקספלויט, סייזינג, ניהול סשן.", img: "/courses/table1.jpg", href: "/courses/cash" },
+  { title: "המשחק המנטלי", level: "כל הרמות", lessons: 12, desc: "טילט, פוקוס, ביצועים תחת לחץ.", img: "/courses/mind1.jpg", href: "/courses/mental" },
+  { title: "שליטה ב-Preflop", level: "מתחילים", lessons: 16, desc: "ריינג׳ים, 3-bet, סקוויז.", img: "/courses/cards2.jpg", href: "/courses/preflop" },
+  { title: "ניהול באנקרול", level: "כל הרמות", lessons: 8, desc: "כמה באיים, מתי לעלות ומתי לרדת.", img: "/courses/chips2.jpg", href: "/courses/bankroll" },
 ];
 
-const PATHS = [
-  { name: "Foundation Track", level: "Beginner → Intermediate", courses: 4, duration: "6 weeks", desc: "From the absolute basics to your first structured approach. You will finish with a real strategy, not just rules.", icon: Target },
-  { name: "Tournament Specialist", level: "Intermediate → Advanced", courses: 3, duration: "4 weeks", desc: "Focused on MTT play. ICM, final tables, and the specific adjustments that turn knowledge into results.", icon: Layers },
-  { name: "Edge Builder", level: "Advanced", courses: 3, duration: "4 weeks", desc: "For players who already win. Refine exploits, shore up leaks, and develop the analytical habits of top-tier competitors.", icon: Zap },
-];
-
-export default function AcademyHomePage() {
+export default function AcademyHome() {
   return (
     <>
-      {/* === HERO — Mastery-Driven, Not Hype-Driven === */}
-      <section className="relative min-h-[88vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0 bg-obsidian-950" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_rgba(5,150,105,0.06)_0%,_transparent_55%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_rgba(5,150,105,0.04)_0%,_transparent_45%)]" />
-        <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-emerald-800/30 to-transparent" />
+      {/* ===== HERO — FULL WIDTH IMAGE ===== */}
+      <section className="relative min-h-[80vh] flex items-end overflow-hidden">
+        <div className="absolute inset-0">
+          <img src="/courses/hero-cards.jpg" alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/40 to-transparent" />
+        </div>
+        <div className="relative mx-auto max-w-6xl px-6 pb-16 pt-40 w-full">
+          <span className="inline-block text-[10px] font-black text-gold-500 tracking-[0.2em] uppercase bg-bg/60 backdrop-blur px-3 py-1.5 rounded-full mb-5">ClubGG Academy — בית הספר לפוקר</span>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.08] drop-shadow-lg max-w-2xl">
+            תפסיקו לנחש.
+            <span className="block text-red-400 mt-1">תתחילו לנצח.</span>
+          </h1>
+          <p className="mt-5 text-lg text-white/80 leading-relaxed max-w-lg drop-shadow">
+            קורסים מובנים עם מאמנים אמיתיים. מסלולי למידה שבנויים לתוצאות.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a href="/join"><button className="h-12 px-7 rounded-xl bg-gradient-to-l from-red-600 to-red-500 text-white font-bold text-[15px] hover:from-red-500 hover:to-red-400 transition-all cursor-pointer shadow-lg shadow-red-500/25 inline-flex items-center gap-2">התחילו חינם <ArrowLeft className="w-4 h-4" /></button></a>
+            <a href="/quiz"><button className="h-12 px-7 rounded-xl bg-white/15 backdrop-blur text-white font-bold text-[15px] hover:bg-white/25 transition-all cursor-pointer border border-white/20 inline-flex items-center gap-2"><Target className="w-4 h-4" />מבחן התאמה</button></a>
+          </div>
+        </div>
+      </section>
 
-        <div className="relative mx-auto max-w-7xl px-6 py-32">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-emerald-800/40 bg-emerald-900/15 mb-10">
-              <BookOpen className="w-3.5 h-3.5 text-emerald-400" />
-              <span className="text-xs text-emerald-300 tracking-[0.12em] uppercase font-medium">Structured Poker Education</span>
+      {/* ===== STATS BAR ===== */}
+      <section className="bg-bg-card border-y border-line">
+        <div className="mx-auto max-w-6xl px-6 py-6 grid grid-cols-3 gap-6 text-center">
+          {[
+            { value: "90+", label: "שיעורי וידאו", icon: Play },
+            { value: "6", label: "קורסים מובנים", icon: BookOpen },
+            { value: "₪0", label: "להתחיל", icon: Trophy },
+          ].map(s => (
+            <div key={s.label} className="flex flex-col items-center gap-1">
+              <s.icon className="w-5 h-5 text-red-400 mb-1" />
+              <span className="text-2xl font-black text-t-50">{s.value}</span>
+              <span className="text-xs text-t-400">{s.label}</span>
             </div>
+          ))}
+        </div>
+      </section>
 
-            <h1 className="text-5xl md:text-6xl lg:text-[4.5rem] font-bold text-ivory-50 tracking-tight leading-[1.04]">
-              Stop Guessing.<br />
-              <span className="text-emerald-400">Start Improving.</span>
-            </h1>
-
-            <p className="mt-7 text-xl text-platinum-300 leading-relaxed max-w-2xl">
-              GGClube Academy replaces random YouTube sessions with a real education system. Structured courses, expert coaches, clear progression, and a community where improvement is the standard — not the exception.
-            </p>
-
-            <div className="mt-10 flex flex-col sm:flex-row gap-4">
-              <a href="/join">
-                <Button variant="primary" size="xl">
-                  Start Free
-                  <ArrowRight className="w-5 h-5" />
-                </Button>
-              </a>
-              <a href="/courses">
-                <Button variant="outline" size="xl">
-                  Browse Courses
-                </Button>
-              </a>
+      {/* ===== COURSES — POKER IMAGES ===== */}
+      <section className="py-16">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="flex items-center justify-between mb-10">
+            <div>
+              <span className="text-[10px] font-black text-red-400 tracking-[0.15em]">COURSES</span>
+              <h2 className="text-3xl font-black text-t-50 mt-1">הקורסים שלנו</h2>
             </div>
+            <a href="/courses" className="text-sm text-red-400 font-bold hover:underline">כל הקורסים ←</a>
+          </div>
 
-            <div className="mt-14 flex items-center gap-10 text-sm text-platinum-400">
-              <div className="flex items-center gap-2">
-                <Play className="w-4 h-4 text-emerald-500" />
-                <span>90+ Lessons</span>
+          {/* Featured course — big */}
+          <a href={COURSES[0].href} className="group block rounded-2xl overflow-hidden mb-8 relative">
+            <div className="aspect-[21/9] overflow-hidden">
+              <img src={COURSES[0].img} alt={COURSES[0].title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div className="absolute inset-0 bg-gradient-to-l from-bg via-bg/70 to-transparent" />
+            </div>
+            <div className="absolute bottom-0 right-0 p-8 max-w-md">
+              <span className="text-[10px] font-black text-red-400 bg-red-500/20 px-2.5 py-1 rounded-full">{COURSES[0].level} • {COURSES[0].lessons} שיעורים</span>
+              <h3 className="text-2xl font-black text-t-50 mt-3 group-hover:text-red-400 transition-colors">{COURSES[0].title}</h3>
+              <p className="text-sm text-t-300 mt-2">{COURSES[0].desc}</p>
+            </div>
+          </a>
+
+          {/* Rest of courses — grid */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {COURSES.slice(1).map(c => (
+              <a key={c.title} href={c.href} className="group block rounded-xl bg-bg-card border border-line overflow-hidden hover:border-line-hover hover:shadow-card transition-all">
+                <div className="aspect-[16/10] overflow-hidden">
+                  <img src={c.img} alt={c.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                </div>
+                <div className="p-5">
+                  <span className="text-[10px] font-bold text-red-400">{c.level} • {c.lessons} שיעורים</span>
+                  <h3 className="text-base font-bold text-t-50 mt-1 group-hover:text-red-400 transition-colors">{c.title}</h3>
+                  <p className="text-sm text-t-400 mt-1">{c.desc}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== LEARNING PATHS ===== */}
+      <section className="py-16 bg-bg-card border-y border-line relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(198,40,40,0.05)_0%,_transparent_50%)]" />
+        <div className="relative mx-auto max-w-6xl px-6">
+          <span className="text-[10px] font-black text-red-400 tracking-[0.15em]">PATHS</span>
+          <h2 className="text-3xl font-black text-t-50 mt-1 mb-3">בחרו מסלול. קבלו תוכנית.</h2>
+          <p className="text-t-400 mb-10 max-w-lg">לא סתם רשימת סרטונים. כל מסלול בנוי בסדר הנכון עם יעדים ברורים.</p>
+          <div className="grid sm:grid-cols-3 gap-6">
+            {[
+              { name: "מסלול יסודות", level: "מתחיל → בינוני", courses: 4, weeks: "6 שבועות", desc: "מאפס לאסטרטגיה אמיתית. הבסיס שבלעדיו אי אפשר.", icon: Target, color: "from-red-500/10 to-transparent" },
+              { name: "מומחה טורנירים", level: "בינוני → מתקדם", courses: 3, weeks: "4 שבועות", desc: "ICM, שולחנות גמר, באבל. להפוך ידע לכסף.", icon: Layers, color: "from-gold-500/10 to-transparent" },
+              { name: "בונה יתרון", level: "מתקדם", courses: 3, weeks: "4 שבועות", desc: "לשחקנים שכבר מנצחים. דקדוק, ניצול, הרגלי אליטה.", icon: Zap, color: "from-red-500/10 to-transparent" },
+            ].map(p => (
+              <div key={p.name} className={`p-6 rounded-2xl bg-gradient-to-b ${p.color} border border-line hover:border-line-hover transition-all`}>
+                <p.icon className="w-8 h-8 text-gold-500 mb-5" />
+                <span className="text-[10px] font-bold text-red-400 bg-red-500/10 px-2 py-0.5 rounded-full">{p.level}</span>
+                <h3 className="text-xl font-black text-t-50 mt-3 mb-2">{p.name}</h3>
+                <p className="text-sm text-t-400 leading-relaxed">{p.desc}</p>
+                <p className="text-xs text-t-500 mt-4">{p.courses} קורסים • {p.weeks}</p>
               </div>
-              <div className="flex items-center gap-2">
-                <BarChart3 className="w-4 h-4 text-emerald-500" />
-                <span>All Skill Levels</span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== VISUAL STRIP — POKER ATMOSPHERE ===== */}
+      <section className="relative h-[300px] overflow-hidden">
+        <img src="/courses/atmosphere.jpg" alt="" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-bg/60" />
+        <div className="absolute inset-0 flex items-center justify-center text-center">
+          <div>
+            <h2 className="text-3xl sm:text-4xl font-black text-t-50">הפוקר הוא לא מזל.<br /><span className="text-red-400">הוא מיומנות.</span></h2>
+            <a href="/join"><button className="mt-6 h-11 px-8 rounded-xl bg-red-500 text-white font-bold text-sm hover:bg-red-600 transition-colors cursor-pointer inline-flex items-center gap-2">התחילו ללמוד <ArrowLeft className="w-4 h-4" /></button></a>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== COACHES ===== */}
+      <section className="py-16">
+        <div className="mx-auto max-w-6xl px-6">
+          <span className="text-[10px] font-black text-red-400 tracking-[0.15em]">COACHES</span>
+          <h2 className="text-3xl font-black text-t-50 mt-1 mb-8">המאמנים</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              { name: "מאמן MTT", spec: "טורנירים", cred: "15+ שנים, ₪7M+", img: "/coaches/coach-1.jpg" },
+              { name: "מאמן קאש", spec: "קאש גיימס", cred: "היי-סטייקס, 3 ספרים", img: "/coaches/coach-2.jpg" },
+              { name: "מאמן מנטלי", spec: "פסיכולוגיה", cred: "פסיכולוג ספורט", img: "/coaches/coach-3.jpg" },
+              { name: "מאמן יסודות", spec: "מתחילים", cred: "10,000+ תלמידים", img: "/coaches/coach-4.jpg" },
+            ].map(c => (
+              <a key={c.name} href="/coaches" className="group block rounded-xl overflow-hidden relative aspect-[3/4]">
+                <img src={c.img} alt={c.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/30 to-transparent" />
+                <div className="absolute bottom-0 inset-x-0 p-5">
+                  <span className="text-[10px] font-bold text-red-400">{c.spec}</span>
+                  <h3 className="text-base font-bold text-t-50 mt-0.5">{c.name}</h3>
+                  <p className="text-xs text-t-300">{c.cred}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== COMMUNITY ===== */}
+      <section className="py-16 bg-bg-card border-y border-line">
+        <div className="mx-auto max-w-6xl px-6">
+          <span className="text-[10px] font-black text-red-400 tracking-[0.15em]">COMMUNITY</span>
+          <h2 className="text-3xl font-black text-t-50 mt-1 mb-8">הקהילה</h2>
+          <div className="grid sm:grid-cols-3 gap-5">
+            <a href="#" className="p-6 rounded-xl bg-bg-elevated border border-line hover:border-[#25D366]/40 transition-all group text-center">
+              <div className="w-14 h-14 rounded-2xl bg-[#25D366]/10 flex items-center justify-center mx-auto mb-4"><MessageCircle className="w-7 h-7 text-[#25D366]" /></div>
+              <h3 className="text-base font-bold text-t-50 group-hover:text-[#25D366]">וואטסאפ</h3>
+              <p className="text-sm text-t-400 mt-1">דיונים, שאלות ועזרה הדדית</p>
+              <button className="mt-4 h-9 px-5 rounded-lg bg-[#25D366] text-white text-xs font-bold cursor-pointer">הצטרפו</button>
+            </a>
+            <a href="#" className="p-6 rounded-xl bg-bg-elevated border border-line hover:border-[#0088cc]/40 transition-all group text-center">
+              <div className="w-14 h-14 rounded-2xl bg-[#0088cc]/10 flex items-center justify-center mx-auto mb-4">
+                <svg className="w-7 h-7 text-[#0088cc]" fill="currentColor" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
               </div>
-              <div className="flex items-center gap-2">
-                <Users className="w-4 h-4 text-emerald-500" />
-                <span>Expert-Led</span>
+              <h3 className="text-base font-bold text-t-50 group-hover:text-[#0088cc]">טלגרם</h3>
+              <p className="text-sm text-t-400 mt-1">עדכונים וטיפים יומיים</p>
+              <button className="mt-4 h-9 px-5 rounded-lg bg-[#0088cc] text-white text-xs font-bold cursor-pointer">הצטרפו</button>
+            </a>
+            <a href="/community" className="p-6 rounded-xl bg-bg-elevated border border-line hover:border-red-500/30 transition-all group text-center">
+              <div className="w-14 h-14 rounded-2xl bg-red-500/10 flex items-center justify-center mx-auto mb-4"><Users className="w-7 h-7 text-red-400" /></div>
+              <h3 className="text-base font-bold text-t-50 group-hover:text-red-400">פורום</h3>
+              <p className="text-sm text-t-400 mt-1">ניתוח ידיים וקבוצות למידה</p>
+              <button className="mt-4 h-9 px-5 rounded-lg bg-red-500/10 text-red-400 text-xs font-bold cursor-pointer border border-red-500/20">למידע</button>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== TESTIMONIALS ===== */}
+      <section className="py-16">
+        <div className="mx-auto max-w-6xl px-6">
+          <span className="text-[10px] font-black text-red-400 tracking-[0.15em]">REVIEWS</span>
+          <h2 className="text-3xl font-black text-t-50 mt-1 mb-8">מה אומרים</h2>
+          <div className="grid sm:grid-cols-3 gap-5">
+            {[
+              { q: "קורס הטורנירים שינה לי את הגישה ל-ICM. תוצאות תוך חודש.", who: "שחקן — ת״א", lvl: "בינוני" },
+              { q: "6 שבועות במסלול היסודות > שנתיים ביוטוב. כי זה בסדר הנכון.", who: "שחקן — חיפה", lvl: "מתחיל" },
+              { q: "הקורס המנטלי חובה. הפסקתי להפסיד סשנים בגלל טילט.", who: "שחקן — י-ם", lvl: "מתקדם" },
+            ].map(t => (
+              <div key={t.who} className="p-6 rounded-xl bg-bg-card border border-line">
+                <div className="flex gap-0.5 mb-3">{[1,2,3,4,5].map(s=><Star key={s} className="w-4 h-4 text-gold-500 fill-gold-500"/>)}</div>
+                <p className="text-sm text-t-300 leading-relaxed italic">&ldquo;{t.q}&rdquo;</p>
+                <div className="mt-4"><p className="text-sm font-bold text-t-50">{t.who}</p><p className="text-xs text-t-500">{t.lvl}</p></div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== PRICING ===== */}
+      <section className="py-16 bg-bg-card border-y border-line">
+        <div className="mx-auto max-w-4xl px-6">
+          <div className="text-center mb-10">
+            <span className="text-[10px] font-black text-red-400 tracking-[0.15em]">PRICING</span>
+            <h2 className="text-3xl font-black text-t-50 mt-1">חינם להתחיל. ₪99 לגישה מלאה.</h2>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-6">
+            <div className="p-8 rounded-2xl bg-bg-elevated border border-line">
+              <span className="text-xs font-bold text-t-400">חינם</span>
+              <p className="text-4xl font-black text-t-50 mt-2">₪0</p>
+              <p className="text-xs text-t-500 mt-1 mb-6">לתמיד</p>
+              <ul className="space-y-2.5 mb-8">
+                {["קורס יסודות","פורומים","ניוזלטר","וואטסאפ"].map(i=>(
+                  <li key={i} className="flex items-center gap-2 text-sm text-t-300"><CheckCircle className="w-4 h-4 text-ok-500"/>{i}</li>
+                ))}
+              </ul>
+              <a href="/join"><button className="w-full h-11 rounded-xl border border-line text-t-200 font-bold text-sm hover:bg-bg-surface transition-colors cursor-pointer">הצטרפו חינם</button></a>
+            </div>
+            <div className="p-8 rounded-2xl bg-bg-elevated border-2 border-red-500 shadow-glow relative overflow-hidden">
+              <div className="absolute top-0 left-0 px-3 py-1 bg-red-500 text-white text-[10px] font-black rounded-br-lg">מומלץ</div>
+              <span className="text-xs font-bold text-red-400">פרימיום</span>
+              <p className="text-4xl font-black text-t-50 mt-2">₪99<span className="text-lg text-t-400">/חודש</span></p>
+              <p className="text-xs text-t-500 mt-1 mb-6">ביטול בכל עת</p>
+              <ul className="space-y-2.5 mb-8">
+                {["כל הקורסים","קהילה פרימיום","Q&A מאמנים","כלים מתקדמים","תמיכה VIP","טלגרם VIP"].map(i=>(
+                  <li key={i} className="flex items-center gap-2 text-sm text-t-300"><CheckCircle className="w-4 h-4 text-ok-500"/>{i}</li>
+                ))}
+              </ul>
+              <a href="/join"><button className="w-full h-11 rounded-xl bg-gradient-to-l from-red-600 to-red-500 text-white font-bold text-sm hover:from-red-500 hover:to-red-400 transition-all cursor-pointer shadow-lg shadow-red-500/20 inline-flex items-center justify-center gap-2">התחילו <ArrowLeft className="w-4 h-4"/></button></a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* === THE PROBLEM WE SOLVE === */}
-      <Section className="border-t border-graphite-800">
-        <div className="max-w-3xl">
-          <span className="text-xs font-semibold text-emerald-400 uppercase tracking-[0.2em] mb-4 block">Why This Exists</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-ivory-50 tracking-tight leading-tight">
-            Poker has more information than ever — and less structure than ever.
-          </h2>
-          <p className="mt-5 text-lg text-platinum-400 leading-relaxed">
-            Free content teaches you what. It rarely teaches you when, why, or in what order. GGClube Academy is built on the idea that real improvement requires a curriculum — not a playlist.
-          </p>
+      {/* ===== FINAL CTA ===== */}
+      <section className="relative py-20 overflow-hidden">
+        <div className="absolute inset-0">
+          <img src="/courses/player1.jpg" alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-bg/80" />
         </div>
-      </Section>
-
-      {/* === FEATURED COURSES === */}
-      <Section className="border-t border-graphite-800 bg-obsidian-900/20">
-        <div className="flex items-center justify-between mb-10">
-          <div>
-            <SectionLabel>Courses</SectionLabel>
-            <h2 className="text-2xl md:text-3xl font-bold text-ivory-50 mt-1">Built for Real Progress</h2>
-          </div>
-          <a href="/courses"><Button variant="ghost" size="sm">All Courses <ArrowRight className="w-3.5 h-3.5" /></Button></a>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-6">
-          {COURSES.map((course) => (
-            <a key={course.title} href="#" className="group block">
-              <div className="h-full rounded-2xl border border-graphite-700 bg-obsidian-800/30 p-8 hover:border-emerald-800/50 transition-all duration-500 relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-emerald-900/8 to-transparent" />
-                <div className="relative">
-                  <div className="flex items-center gap-3 mb-4">
-                    <Badge variant="premium">{course.level}</Badge>
-                    <span className="text-[10px] text-platinum-500">{course.lessons} lessons • {course.hours} hours</span>
-                  </div>
-                  <h3 className="text-lg font-bold text-ivory-50 mb-3 group-hover:text-emerald-400 transition-colors">{course.title}</h3>
-                  <p className="text-sm text-platinum-400 leading-relaxed">{course.desc}</p>
-                  <div className="mt-6 flex items-center gap-2 text-sm text-emerald-400 group-hover:gap-3 transition-all">
-                    <span>View curriculum</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </div>
-                </div>
-              </div>
-            </a>
-          ))}
-        </div>
-      </Section>
-
-      {/* === LEARNING PATHS === */}
-      <Section className="border-t border-graphite-800">
-        <SectionLabel>Learning Paths</SectionLabel>
-        <h2 className="text-2xl md:text-3xl font-bold text-ivory-50 mt-1 mb-3">Structured Progression, Not Random Content</h2>
-        <p className="text-platinum-400 max-w-2xl mb-10">Each path combines multiple courses into a deliberate sequence. You always know what to study next and why it matters at your current level.</p>
-
-        <div className="grid md:grid-cols-3 gap-6">
-          {PATHS.map((path) => (
-            <div key={path.name} className="p-6 rounded-2xl border border-graphite-700/50 bg-obsidian-800/20 hover:border-emerald-800/40 transition-all">
-              <div className="w-10 h-10 rounded-lg bg-emerald-900/30 border border-emerald-800/30 flex items-center justify-center mb-5">
-                <path.icon className="w-5 h-5 text-emerald-400" />
-              </div>
-              <Badge variant="new" className="mb-3">{path.level}</Badge>
-              <h3 className="text-lg font-bold text-ivory-50 mb-2">{path.name}</h3>
-              <p className="text-sm text-platinum-400 leading-relaxed mb-4">{path.desc}</p>
-              <div className="flex items-center gap-3 text-xs text-platinum-500">
-                <span>{path.courses} courses</span>
-                <span>•</span>
-                <span>{path.duration}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      {/* === COACHING TEAM === */}
-      <Section className="border-t border-graphite-800 bg-obsidian-900/20">
-        <SectionLabel>Expert Coaches</SectionLabel>
-        <h2 className="text-2xl md:text-3xl font-bold text-ivory-50 mt-1 mb-3">People Who Have Done It, Not Just Studied It</h2>
-        <p className="text-platinum-400 max-w-2xl mb-10">Every coach in the Academy has a real track record — as a player, educator, or specialist. No anonymous instructors. No recycled content.</p>
-
-        <div className="grid md:grid-cols-4 gap-5">
-          {[
-            { name: "Coach Alpha", role: "MTT Strategy", cred: "15+ years, $2M+ tournament earnings" },
-            { name: "Coach Beta", role: "Cash Games", cred: "High-stakes pro, 3x published author" },
-            { name: "Coach Gamma", role: "Mental Game", cred: "Sports psychologist, poker specialist" },
-            { name: "Coach Delta", role: "Fundamentals", cred: "Educator, 10,000+ students coached" },
-          ].map((coach) => (
-            <div key={coach.name} className="p-5 rounded-xl border border-graphite-700/40 bg-obsidian-800/20 text-center hover:border-emerald-800/40 transition-all">
-              <div className="w-16 h-16 rounded-full bg-graphite-700/80 mx-auto mb-4" />
-              <h3 className="text-sm font-semibold text-ivory-50">{coach.name}</h3>
-              <p className="text-xs text-emerald-400 mt-1">{coach.role}</p>
-              <p className="text-[10px] text-platinum-500 mt-2 leading-relaxed">{coach.cred}</p>
-            </div>
-          ))}
-        </div>
-        <div className="mt-6 text-center">
-          <a href="/coaches"><Button variant="ghost" size="sm">Meet the full team <ArrowRight className="w-3.5 h-3.5" /></Button></a>
-        </div>
-      </Section>
-
-      {/* === SOCIAL PROOF === */}
-      <Section className="border-t border-graphite-800">
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <SectionLabel>Community</SectionLabel>
-          <h2 className="text-2xl md:text-3xl font-bold text-ivory-50 mt-1">What Members Say</h2>
-        </div>
-        <div className="grid md:grid-cols-3 gap-6">
-          {[
-            { quote: "The Tournament Masterclass restructured how I think about ICM spots. It was the first course that actually changed my results — not just my knowledge.", name: "Member A", level: "Intermediate" },
-            { quote: "I tried learning from YouTube for two years. Six weeks in the Foundation Track taught me more, because it was in the right order with clear reasoning.", name: "Member B", level: "Beginner" },
-            { quote: "The Mental Game course should be mandatory. I stopped losing sessions to tilt and started reviewing hands without emotional bias.", name: "Member C", level: "Advanced" },
-          ].map((t) => (
-            <div key={t.name} className="p-6 rounded-xl border border-graphite-700/40 bg-obsidian-800/20">
-              <div className="flex gap-0.5 mb-4">
-                {[1,2,3,4,5].map((s) => <Star key={s} className="w-3.5 h-3.5 text-trust-400 fill-trust-400" />)}
-              </div>
-              <p className="text-sm text-platinum-300 leading-relaxed mb-5 italic">&ldquo;{t.quote}&rdquo;</p>
-              <div>
-                <p className="text-sm font-medium text-ivory-100">{t.name}</p>
-                <p className="text-[10px] text-platinum-500">{t.level}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      {/* === PRICING === */}
-      <Section className="border-t border-graphite-800 bg-obsidian-900/20">
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <SectionLabel>Membership</SectionLabel>
-          <h2 className="text-2xl md:text-3xl font-bold text-ivory-50 mt-1">Start Free. Upgrade When Ready.</h2>
-          <p className="mt-3 text-platinum-400">No pressure. The free tier gives you real value. Premium unlocks everything.</p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-          <div className="p-8 rounded-2xl border border-graphite-700 bg-obsidian-800/30">
-            <span className="text-xs font-semibold text-platinum-500 uppercase tracking-wider">Free</span>
-            <p className="text-3xl font-bold text-ivory-50 mt-2">$0</p>
-            <p className="text-xs text-platinum-500 mt-1 mb-6">No credit card required</p>
-            <ul className="space-y-2.5 mb-8">
-              {["Beginner course access", "Community forums", "Weekly newsletter", "Free resource library"].map((item) => (
-                <li key={item} className="flex items-center gap-2 text-sm text-platinum-300">
-                  <CheckCircle className="w-3.5 h-3.5 text-emerald-500" />{item}
-                </li>
-              ))}
-            </ul>
-            <a href="/join"><Button variant="outline" size="lg" className="w-full">Join Free</Button></a>
-          </div>
-          <div className="p-8 rounded-2xl border border-emerald-800/50 bg-obsidian-800/30 shadow-glow-emerald relative overflow-hidden">
-            <div className="absolute top-0 right-0 px-3 py-1 bg-emerald-600 text-ivory-50 text-[10px] font-semibold rounded-bl-lg uppercase tracking-wider">Full Access</div>
-            <span className="text-xs font-semibold text-emerald-400 uppercase tracking-wider">Premium</span>
-            <p className="text-3xl font-bold text-ivory-50 mt-2">$29<span className="text-base text-platinum-500">/mo</span></p>
-            <p className="text-xs text-platinum-500 mt-1 mb-6">Cancel anytime</p>
-            <ul className="space-y-2.5 mb-8">
-              {["All courses & learning paths", "Premium community", "Coach Q&A sessions", "Advanced tools", "Priority support", "Downloadable resources"].map((item) => (
-                <li key={item} className="flex items-center gap-2 text-sm text-platinum-300">
-                  <CheckCircle className="w-3.5 h-3.5 text-emerald-500" />{item}
-                </li>
-              ))}
-            </ul>
-            <a href="/pricing"><Button variant="primary" size="lg" className="w-full">Start Premium <ArrowRight className="w-4 h-4" /></Button></a>
-          </div>
-        </div>
-        <p className="mt-6 text-center text-xs text-platinum-500">See <a href="/legal/refund-policy" className="hover:underline">refund policy</a>. 18+ only.</p>
-      </Section>
-
-      {/* === ECOSYSTEM === */}
-      <Section className="border-t border-graphite-800">
-        <span className="text-xs font-semibold text-platinum-500 uppercase tracking-[0.2em] mb-6 block">GGClube Ecosystem</span>
-        <div className="grid md:grid-cols-2 gap-6">
-          <a href={process.env.NEXT_PUBLIC_UNION_URL || "https://ggclube.com"} className="group p-6 rounded-xl border border-graphite-700/40 bg-obsidian-800/20 hover:border-emerald-800/40 transition-all">
-            <Shield className="w-6 h-6 text-emerald-400 mb-3" />
-            <h3 className="text-base font-semibold text-ivory-50 mb-1">GGClube Union</h3>
-            <p className="text-xs text-platinum-400">Verification, applications, trust standards, and the official GGClube network.</p>
-          </a>
-          <a href={process.env.NEXT_PUBLIC_NEWS_URL || "https://news.ggclube.com"} className="group p-6 rounded-xl border border-graphite-700/40 bg-obsidian-800/20 hover:border-emerald-800/40 transition-all">
-            <BookOpen className="w-6 h-6 text-emerald-400 mb-3" />
-            <h3 className="text-base font-semibold text-ivory-50 mb-1">GGClube News</h3>
-            <p className="text-xs text-platinum-400">Tournament coverage, rankings, verified directory, and daily poker intelligence.</p>
-          </a>
-        </div>
-      </Section>
-
-      {/* === FINAL CTA === */}
-      <section className="border-t border-graphite-800 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-emerald-900/8 to-transparent" />
-        <div className="relative mx-auto max-w-7xl px-6 py-24 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-ivory-50 tracking-tight">Your Next Level Is a Decision Away</h2>
-          <p className="mt-4 text-lg text-platinum-400 max-w-xl mx-auto">
-            Every player who improved did one thing first: they chose a structured path over random content. The Academy is that path.
-          </p>
-          <div className="mt-10">
-            <a href="/join"><Button variant="primary" size="xl">Start Learning Free <ArrowRight className="w-5 h-5" /></Button></a>
+        <div className="relative mx-auto max-w-6xl px-6 text-center">
+          <h2 className="text-3xl sm:text-4xl font-black text-t-50">הרמה הבאה מתחילה עכשיו</h2>
+          <p className="mt-3 text-t-300 max-w-md mx-auto">כל שחקן שהשתפר עשה דבר אחד: בחר מסלול מובנה במקום תוכן אקראי.</p>
+          <div className="mt-8 flex justify-center gap-3">
+            <a href="/join"><button className="h-13 px-8 rounded-xl bg-gradient-to-l from-red-600 to-red-500 text-white font-black text-base hover:from-red-500 hover:to-red-400 transition-all cursor-pointer shadow-xl shadow-red-500/30 inline-flex items-center gap-2">התחילו — חינם <ArrowLeft className="w-5 h-5"/></button></a>
+            <a href="/quiz"><button className="h-13 px-8 rounded-xl bg-white/10 text-t-50 font-black text-base hover:bg-white/20 transition-all cursor-pointer border border-white/20 inline-flex items-center gap-2"><Target className="w-5 h-5"/>מבחן התאמה</button></a>
           </div>
         </div>
       </section>

@@ -1,68 +1,42 @@
 "use client";
-
 import { useState } from "react";
-import { Section, SectionLabel, SectionTitle, SectionDescription, Button, Card, CardContent } from "@ggclube/ui";
-import { ArrowRight, CheckCircle } from "lucide-react";
+import { CheckCircle, ArrowLeft } from "lucide-react";
 
 export default function JoinPage() {
-  const [submitted, setSubmitted] = useState(false);
-
-  if (submitted) {
-    return (
-      <Section className="pt-32 min-h-[70vh] flex items-center">
-        <div className="text-center max-w-lg mx-auto">
-          <div className="w-16 h-16 rounded-full bg-emerald-900/40 border border-emerald-800/40 flex items-center justify-center mx-auto mb-6">
-            <CheckCircle className="w-8 h-8 text-emerald-400" />
-          </div>
-          <h1 className="text-3xl font-bold text-ivory-50 mb-4">Welcome to GGClube Academy</h1>
-          <p className="text-platinum-400 mb-8">Your account has been created. Check your email to get started.</p>
-          <a href="/courses"><Button variant="primary" size="lg">Browse Courses <ArrowRight className="w-4 h-4" /></Button></a>
-        </div>
-      </Section>
-    );
-  }
-
+  const [done, setDone] = useState(false);
+  if (done) return (
+    <div className="mx-auto max-w-md px-6 py-24 text-center">
+      <CheckCircle className="w-12 h-12 text-green-500 mx-auto mb-4" />
+      <h1 className="text-2xl font-black text-text-900 mb-2">ברוכים הבאים!</h1>
+      <p className="text-text-500 mb-6">החשבון נוצר. בדקו את המייל כדי להתחיל.</p>
+      <a href="/courses"><button className="h-11 px-6 rounded-xl bg-green-600 text-white font-bold text-sm hover:bg-green-700 transition-colors cursor-pointer">לקורסים</button></a>
+    </div>
+  );
   return (
-    <Section className="pt-32 min-h-[80vh]">
-      <div className="max-w-md mx-auto">
-        <div className="text-center mb-8">
-          <SectionTitle as="h1" className="mx-auto text-center">Join GGClube Academy</SectionTitle>
-          <p className="mt-3 text-platinum-400">Create your free account and start learning.</p>
+    <div className="mx-auto max-w-md px-6 py-16">
+      <h1 className="text-2xl font-black text-text-900 text-center mb-2">הצטרפו ל-ClubGG Academy</h1>
+      <p className="text-text-500 text-center mb-8">חשבון חינמי. התחילו ללמוד עכשיו.</p>
+      <div className="p-6 rounded-xl bg-card border border-border space-y-4">
+        <div>
+          <label className="block text-sm text-text-600 mb-1">שם מלא</label>
+          <input type="text" className="w-full h-10 px-3 rounded-lg border border-border bg-bg text-text-800 text-sm focus:outline-none focus:border-green-600 transition-colors" />
         </div>
-
-        <Card>
-          <CardContent className="p-8 space-y-5">
-            <div>
-              <label className="block text-sm text-platinum-300 mb-1.5">Full Name</label>
-              <input type="text" className="w-full h-10 px-3 rounded-lg border border-graphite-600 bg-obsidian-900 text-ivory-100 text-sm focus:outline-none focus:border-emerald-600 transition-colors" />
-            </div>
-            <div>
-              <label className="block text-sm text-platinum-300 mb-1.5">Email</label>
-              <input type="email" className="w-full h-10 px-3 rounded-lg border border-graphite-600 bg-obsidian-900 text-ivory-100 text-sm focus:outline-none focus:border-emerald-600 transition-colors" />
-            </div>
-            <div>
-              <label className="block text-sm text-platinum-300 mb-1.5">Password</label>
-              <input type="password" className="w-full h-10 px-3 rounded-lg border border-graphite-600 bg-obsidian-900 text-ivory-100 text-sm focus:outline-none focus:border-emerald-600 transition-colors" />
-            </div>
-            <div className="space-y-3 pt-2">
-              <label className="flex items-start gap-3 cursor-pointer">
-                <input type="checkbox" className="mt-1 accent-emerald-600" />
-                <span className="text-sm text-platinum-300">I am 18+ years old</span>
-              </label>
-              <label className="flex items-start gap-3 cursor-pointer">
-                <input type="checkbox" className="mt-1 accent-emerald-600" />
-                <span className="text-sm text-platinum-300">I agree to the <a href="/legal/terms" className="text-emerald-400 hover:underline">Terms</a> and <a href="/legal/privacy" className="text-emerald-400 hover:underline">Privacy Policy</a></span>
-              </label>
-            </div>
-            <Button variant="primary" size="lg" className="w-full" onClick={() => setSubmitted(true)}>
-              Create Free Account <ArrowRight className="w-4 h-4" />
-            </Button>
-            <p className="text-xs text-platinum-500 text-center">
-              Already have an account? <a href="/login" className="text-emerald-400 hover:underline">Sign in</a>
-            </p>
-          </CardContent>
-        </Card>
+        <div>
+          <label className="block text-sm text-text-600 mb-1">אימייל</label>
+          <input type="email" className="w-full h-10 px-3 rounded-lg border border-border bg-bg text-text-800 text-sm focus:outline-none focus:border-green-600 transition-colors" />
+        </div>
+        <div>
+          <label className="block text-sm text-text-600 mb-1">סיסמה</label>
+          <input type="password" className="w-full h-10 px-3 rounded-lg border border-border bg-bg text-text-800 text-sm focus:outline-none focus:border-green-600 transition-colors" />
+        </div>
+        <div className="space-y-2 pt-2">
+          <label className="flex items-start gap-2 cursor-pointer"><input type="checkbox" className="mt-1 accent-green-600" /><span className="text-sm text-text-600">אני בן/בת 21+</span></label>
+          <label className="flex items-start gap-2 cursor-pointer"><input type="checkbox" className="mt-1 accent-green-600" /><span className="text-sm text-text-600">מסכים/ה ל<a href="/legal/terms" className="text-green-600 hover:underline">תנאים</a> ו<a href="/legal/privacy" className="text-green-600 hover:underline">פרטיות</a></span></label>
+        </div>
+        <button onClick={() => setDone(true)} className="w-full h-11 rounded-xl bg-green-600 text-white font-bold text-sm hover:bg-green-700 transition-colors cursor-pointer inline-flex items-center justify-center gap-2">
+          צרו חשבון חינם <ArrowLeft className="w-4 h-4" />
+        </button>
       </div>
-    </Section>
+    </div>
   );
 }

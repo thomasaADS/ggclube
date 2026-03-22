@@ -1,19 +1,20 @@
-import { Section, SectionTitle } from "@ggclube/ui";
 import type { Metadata } from "next";
-
-export const metadata: Metadata = { title: "Refund Policy", description: "GGClube Academy refund policy." };
-
+export const metadata: Metadata = { title: "מדיניות החזרים", description: "מדיניות החזרים ClubGG Academy." };
 export default function RefundPage() {
   return (
-    <Section className="pt-32">
-      <SectionTitle as="h1" className="mb-8">Refund Policy</SectionTitle>
-      <div className="max-w-3xl space-y-6 text-platinum-300 text-sm leading-relaxed">
-        <p className="text-platinum-400">Last updated: March 2026</p>
-        <h2 className="text-lg font-semibold text-ivory-100">Premium Membership</h2>
-        <p>You may request a full refund within 7 days of your initial subscription if you have not completed more than 25% of any course. After 7 days, your membership will continue until the end of the billing cycle upon cancellation.</p>
-        <h2 className="text-lg font-semibold text-ivory-100">How to Request a Refund</h2>
-        <p>Contact our support team at <a href="mailto:support@ggclube.com" className="text-emerald-400 hover:underline">support@ggclube.com</a> with your account email and reason for the request. Refunds are processed within 5–10 business days.</p>
+    <div className="mx-auto max-w-3xl px-6 py-12">
+      <a href="/" className="text-xs text-red-400 font-bold hover:underline mb-6 inline-block">← חזרה</a>
+      <h1 className="text-3xl font-black text-t-50 mb-8">מדיניות החזרים</h1>
+      <div className="space-y-5 text-t-300 text-[15px] leading-[1.8]">
+        <p className="text-t-500 text-sm">עדכון אחרון: מרץ 2026</p>
+        <p>מדיניות זו פועלת בהתאם לחוק הגנת הצרכן, התשמ&quot;א-1981, ותקנות הגנת הצרכן (ביטול עסקה), התשע&quot;א-2010.</p>
+        <h2 className="text-xl font-black text-t-50">ביטול מנוי פרימיום</h2>
+        <p>בהתאם לחוק, ניתן לבטל את העסקה תוך 14 ימים מיום ההרשמה או מיום קבלת מסמך הגילוי (המאוחר מביניהם), בתנאי שלא נצרכו יותר מ-25% מתוכן הקורסים. דמי ביטול: עד 5% ממחיר העסקה או ₪100 — הנמוך מביניהם.</p>
+        <h2 className="text-xl font-black text-t-50">לאחר 14 יום</h2>
+        <p>ניתן לבטל את המנוי בכל עת. המנוי ימשיך לפעול עד תום תקופת החיוב הנוכחית. לא יינתן החזר חלקי על תקופה שלא נוצלה, אלא אם כן נדרש על פי דין.</p>
+        <h2 className="text-xl font-black text-t-50">איך מבטלים</h2>
+        <p>ביטול דרך אזור החשבון באתר, או בפנייה דרך <a href="/faq" className="text-red-400 hover:underline">דף שאלות נפוצות</a>. החזרים מעובדים תוך 14 ימי עסקים כנדרש בחוק.</p>
       </div>
-    </Section>
+    </div>
   );
 }

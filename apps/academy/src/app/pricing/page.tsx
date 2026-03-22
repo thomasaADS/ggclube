@@ -1,63 +1,42 @@
-import { Section, SectionLabel, SectionTitle, SectionDescription, Badge, Card, CardContent, Button } from "@ggclube/ui";
-import { CheckCircle, ArrowRight } from "lucide-react";
+import { CheckCircle, ArrowLeft } from "lucide-react";
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Pricing — Free & Premium Membership",
-  description: "GGClube Academy pricing — free tier with beginner access and premium membership with full course library, coaching, and community.",
-};
+export const metadata: Metadata = { title: "מחירים", description: "מחירי ClubGG Academy." };
 
 export default function PricingPage() {
   return (
-    <Section className="pt-32 min-h-[80vh]">
-      <div className="text-center max-w-2xl mx-auto">
-        <SectionLabel>Pricing</SectionLabel>
-        <SectionTitle as="h1" className="mx-auto">Simple, Transparent Pricing</SectionTitle>
-        <SectionDescription className="mx-auto">Start free. Upgrade when you are ready for the full experience.</SectionDescription>
+    <div className="mx-auto max-w-4xl px-6 py-12">
+      <div className="text-center mb-10">
+        <p className="text-xs font-bold text-red-400 tracking-wider mb-1">PRICING</p>
+        <h1 className="text-3xl font-black text-t-50">מחירים פשוטים ושקופים</h1>
+        <p className="mt-2 text-t-400">התחילו חינם. שדרגו כשמוכנים לגישה מלאה.</p>
       </div>
-
-      <div className="mt-16 grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-        <Card>
-          <CardContent className="p-8">
-            <Badge variant="unverified" className="mb-4">Free</Badge>
-            <h3 className="text-3xl font-bold text-ivory-50 mb-1">$0</h3>
-            <p className="text-sm text-platinum-500 mb-6">Forever free</p>
-            <ul className="space-y-3 mb-8">
-              {["Beginner courses", "Community forums", "Weekly newsletter", "Free resource library", "Selected strategy content"].map((item) => (
-                <li key={item} className="flex items-center gap-2 text-sm text-platinum-300">
-                  <CheckCircle className="w-4 h-4 text-emerald-500" />{item}
-                </li>
-              ))}
-            </ul>
-            <a href="/join"><Button variant="outline" size="lg" className="w-full">Get Started Free</Button></a>
-          </CardContent>
-        </Card>
-        <Card className="border-emerald-800/60 shadow-glow-emerald relative overflow-hidden">
-          <div className="absolute top-0 right-0 px-3 py-1 bg-emerald-600 text-ivory-50 text-xs font-semibold rounded-bl-lg">Most Popular</div>
-          <CardContent className="p-8">
-            <Badge variant="premium" className="mb-4">Premium</Badge>
-            <h3 className="text-3xl font-bold text-ivory-50 mb-1">$29<span className="text-lg text-platinum-400">/mo</span></h3>
-            <p className="text-sm text-platinum-500 mb-6">Cancel anytime</p>
-            <ul className="space-y-3 mb-8">
-              {["All courses & learning paths", "Premium community access", "Coach Q&A sessions", "Advanced strategy tools", "Priority support", "Downloadable resources", "Exclusive masterclasses"].map((item) => (
-                <li key={item} className="flex items-center gap-2 text-sm text-platinum-300">
-                  <CheckCircle className="w-4 h-4 text-emerald-500" />{item}
-                </li>
-              ))}
-            </ul>
-            <a href="/join"><Button variant="primary" size="lg" className="w-full">Start Premium <ArrowRight className="w-4 h-4" /></Button></a>
-          </CardContent>
-        </Card>
+      <div className="grid sm:grid-cols-2 gap-6">
+        <div className="p-8 rounded-xl bg-bg-card border border-line">
+          <span className="text-xs font-bold text-t-500 uppercase">חינם</span>
+          <p className="text-3xl font-black text-t-50 mt-1">$0</p>
+          <p className="text-xs text-t-500 mt-1 mb-6">לתמיד</p>
+          <ul className="space-y-2.5 mb-8">
+            {["קורס יסודות", "פורומים קהילתיים", "ניוזלטר שבועי", "ספריית משאבים חינמיים"].map(i => (
+              <li key={i} className="flex items-center gap-2 text-sm text-t-300"><CheckCircle className="w-4 h-4 text-ok-500" />{i}</li>
+            ))}
+          </ul>
+          <a href="/join"><button className="w-full h-11 rounded-xl border border-line text-t-200 font-bold text-sm hover:bg-bg-elevated transition-colors cursor-pointer">הצטרפו חינם</button></a>
+        </div>
+        <div className="p-8 rounded-xl bg-bg-card border-2 border-red-500 shadow-elevated relative overflow-hidden">
+          <div className="absolute top-0 left-0 px-3 py-1 bg-red-500 text-white text-[10px] font-black rounded-br-lg">גישה מלאה</div>
+          <span className="text-xs font-bold text-red-400 uppercase">פרימיום</span>
+          <p className="text-3xl font-black text-t-50 mt-1">$29<span className="text-base text-t-500">/חודש</span></p>
+          <p className="text-xs text-t-500 mt-1 mb-6">ביטול בכל עת</p>
+          <ul className="space-y-2.5 mb-8">
+            {["כל הקורסים ומסלולי הלמידה", "קהילה פרימיום", "Q&A עם מאמנים", "כלים מתקדמים", "תמיכה מועדפת", "משאבים להורדה"].map(i => (
+              <li key={i} className="flex items-center gap-2 text-sm text-t-300"><CheckCircle className="w-4 h-4 text-ok-500" />{i}</li>
+            ))}
+          </ul>
+          <a href="/join"><button className="w-full h-11 rounded-xl bg-red-500 text-white font-bold text-sm hover:bg-red-600 transition-colors cursor-pointer inline-flex items-center justify-center gap-2">התחילו פרימיום <ArrowLeft className="w-4 h-4" /></button></a>
+        </div>
       </div>
-
-      <div className="mt-12 text-center">
-        <p className="text-sm text-platinum-400">
-          Need coaching? <a href="/coaches" className="text-emerald-400 hover:underline">View our coaching options</a>.
-        </p>
-        <p className="mt-2 text-xs text-platinum-500">
-          See our <a href="/legal/refund-policy" className="hover:underline">refund policy</a> for details.
-        </p>
-      </div>
-    </Section>
+      <p className="text-center mt-6 text-xs text-t-500">ראו <a href="/legal/refund-policy" className="hover:underline text-red-400">מדיניות החזרים</a>. 21+ בלבד.</p>
+    </div>
   );
 }

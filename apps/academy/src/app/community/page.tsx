@@ -1,66 +1,41 @@
-import { Section, SectionLabel, SectionTitle, SectionDescription, Card, CardContent, Button, Badge } from "@ggclube/ui";
-import { Users, MessageSquare, BookOpen, Calendar, ArrowRight } from "lucide-react";
+import { MessageSquare, BookOpen, Users, Calendar } from "lucide-react";
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Community — Join the GGClube Poker Community",
-  description: "Join the GGClube Academy community — discussions, hand reviews, study groups, events, and a network of serious poker players.",
-};
+export const metadata: Metadata = { title: "קהילה", description: "הקהילה של ClubGG Academy." };
 
 export default function CommunityPage() {
   return (
-    <>
-      <Section className="pt-32">
-        <SectionLabel>Community</SectionLabel>
-        <SectionTitle as="h1">A Community Built for Serious Players</SectionTitle>
-        <SectionDescription>
-          GGClube Academy is more than courses — it is a community of players committed to learning, improving, and supporting each other.
-        </SectionDescription>
-      </Section>
-
-      <Section className="pt-0">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {[
-            { icon: MessageSquare, title: "Discussions", desc: "Strategy conversations, hand history analysis, and poker theory discussions." },
-            { icon: BookOpen, title: "Hand Reviews", desc: "Submit hands for community and coach feedback. Learn from real situations." },
-            { icon: Users, title: "Study Groups", desc: "Find study partners at your level. Organize regular sessions and accountability." },
-            { icon: Calendar, title: "Events", desc: "Community tournaments, Q&A sessions with coaches, and special workshops." },
-          ].map((item) => (
-            <Card key={item.title}>
-              <CardContent className="p-6">
-                <item.icon className="w-6 h-6 text-emerald-400 mb-3" />
-                <h3 className="font-semibold text-ivory-50 mb-2">{item.title}</h3>
-                <p className="text-sm text-platinum-400">{item.desc}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </Section>
-
-      <Section className="border-t border-graphite-800 bg-obsidian-900/30">
-        <div className="max-w-2xl">
-          <h2 className="text-2xl font-bold text-ivory-50 mb-4">Code of Conduct</h2>
-          <p className="text-platinum-400 mb-6">Our community is a respectful, constructive space. We expect all members to:</p>
-          <ul className="space-y-2">
-            {["Be respectful and constructive in all interactions", "No spam, self-promotion, or solicitation without approval", "No sharing of pirated or stolen content", "Follow responsible play principles", "Report violations to the moderation team"].map((item) => (
-              <li key={item} className="flex items-start gap-2 text-sm text-platinum-300">
-                <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2 shrink-0" />
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </Section>
-
-      <section className="border-t border-graphite-800 bg-emerald-900/10">
-        <div className="mx-auto max-w-7xl px-6 py-20 text-center">
-          <h2 className="text-3xl font-bold text-ivory-50">Join the Community</h2>
-          <p className="mt-4 text-platinum-400">Free members get community access. Premium members get priority and coach interactions.</p>
-          <div className="mt-8">
-            <a href="/join"><Button variant="primary" size="xl">Join Free <ArrowRight className="w-5 h-5" /></Button></a>
+    <div className="mx-auto max-w-5xl px-6 py-12">
+      <p className="text-xs font-bold text-red-400 tracking-wider mb-1">COMMUNITY</p>
+      <h1 className="text-3xl font-black text-t-50 mb-2">קהילה של שחקנים רציניים</h1>
+      <p className="text-t-400 mb-10">לא סתם פורום. מקום שבו שחקנים לומדים ביחד, משתפרים ביחד, ומחזיקים אחד את השני.</p>
+      <div className="grid sm:grid-cols-2 gap-5 mb-12">
+        {[
+          { icon: MessageSquare, title: "דיונים", desc: "שיחות אסטרטגיה, ניתוח ידיים ותיאוריית פוקר." },
+          { icon: BookOpen, title: "ביקורת ידיים", desc: "שלחו ידיים לפידבק מהקהילה ומהמאמנים." },
+          { icon: Users, title: "קבוצות למידה", desc: "מצאו שותפי למידה ברמה שלכם. סשנים קבועים." },
+          { icon: Calendar, title: "אירועים", desc: "טורנירים קהילתיים, Q&A עם מאמנים, סדנאות." },
+        ].map(x => (
+          <div key={x.title} className="p-5 rounded-xl bg-bg-card border border-line">
+            <x.icon className="w-6 h-6 text-red-400 mb-3" />
+            <h3 className="text-base font-bold text-t-50 mb-1">{x.title}</h3>
+            <p className="text-sm text-t-400">{x.desc}</p>
           </div>
-        </div>
-      </section>
-    </>
+        ))}
+      </div>
+      <div className="p-6 rounded-xl bg-bg-elevated border border-line">
+        <h3 className="text-lg font-bold text-t-50 mb-3">כללי התנהגות</h3>
+        <ul className="space-y-2">
+          {["כבוד ובונות בכל אינטראקציה", "ללא ספאם או קידום עצמי ללא אישור", "ללא שיתוף תוכן פיראטי", "עקרונות משחק אחראי", "דיווח על הפרות לצוות"].map(r => (
+            <li key={r} className="flex items-start gap-2 text-sm text-t-300">
+              <span className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2 shrink-0" />{r}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="mt-10 text-center">
+        <a href="/join"><button className="h-11 px-8 rounded-xl bg-red-500 text-white font-bold text-sm hover:bg-red-600 transition-colors cursor-pointer">הצטרפו לקהילה — חינם</button></a>
+      </div>
+    </div>
   );
 }
