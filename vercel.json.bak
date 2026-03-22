@@ -1,6 +1,0 @@
-{
-  "installCommand": "pnpm install",
-  "buildCommand": "pnpm build:union",
-  "outputDirectory": "apps/union/.next",
-  "framework": "nextjs"
-}
