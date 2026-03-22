@@ -1,51 +1,40 @@
-import { Section, SectionLabel, SectionTitle, Badge, Card, CardContent } from "@ggclube/ui";
 import { Clock, User } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Latest News — Poker Headlines & Updates",
-  description: "The latest poker news, tournament updates, community stories, and industry analysis from GGClube News.",
+  title: "חדשות אחרונות — עדכוני פוקר",
+  description: "החדשות האחרונות מעולם הפוקר — טורנירים, שחקנים, תעשייה ועוד.",
 };
 
 const ARTICLES = [
-  { title: "WSOP 2026 Schedule Announced: Record-Breaking 108 Events", category: "Tournaments", author: "Editorial Team", time: "2 hours ago", excerpt: "The World Series of Poker reveals its most ambitious schedule yet with 108 bracelet events across multiple venues." },
-  { title: "Global Poker Rankings: March 2026 Update", category: "Rankings", author: "Rankings Desk", time: "5 hours ago", excerpt: "New movement in the global rankings with a first-time #1 in the Asia-Pacific region." },
-  { title: "Inside the GGClube Verification Process", category: "Features", author: "Trust Team", time: "1 day ago", excerpt: "A transparent look at how GGClube builds trust through its multi-step agent verification system." },
-  { title: "EPT Barcelona 2026: Complete Preview Guide", category: "Tournaments", author: "Tournament Desk", time: "1 day ago", excerpt: "Everything you need to know about the upcoming European Poker Tour stop in Barcelona." },
-  { title: "Optimal Play in 3-Bet Pots: A Strategic Breakdown", category: "Strategy", author: "Academy Coaches", time: "2 days ago", excerpt: "An analytical approach to post-flop play after 3-betting, including range analysis and sizing considerations." },
-  { title: "GGClube Academy Launches Advanced MTT Course", category: "Education", author: "Academy Team", time: "3 days ago", excerpt: "A new comprehensive multi-table tournament course designed for intermediate to advanced players." },
+  { title: "מייקל מיזרצ׳י זוכה באליפות העולם 2025 ורושם את עצמו בהיסטוריה", category: "WSOP", author: "מערכת", time: "לפני 2 שעות", excerpt: "The Grinder ירד ל-3BB ביום 8, חזר בסערה וזכה ב-$10M ובצמיד השמיני שלו." },
+  { title: "לאו מרגטס — האישה הראשונה בשולחן הגמר מאז 1995", category: "WSOP", author: "מערכת", time: "לפני 5 שעות", excerpt: "השחקנית הספרדייה הגיעה למקום ה-7 ב-Main Event — הישג היסטורי." },
+  { title: "פונאט פונסרי מתאילנד — שחקן השנה של GPI", category: "דירוגים", author: "מערכת", time: "אתמול", excerpt: "השחקן התאילנדי הפך לראשון מאסיה שזוכה בתואר שחקן השנה — 61 קאשים, $10.9M." },
+  { title: "קריסטן פוקסן שוברת שיא: $4.6M ב-2025", category: "שחקנים", author: "מערכת", time: "אתמול", excerpt: "פוקסן עברה את ונסה סלבסט והפכה לשחקנית עם הרווחים הגבוהים בהיסטוריה." },
+  { title: "PokerStars מתמזגת עם FanDuel — מה זה אומר?", category: "תעשייה", author: "מערכת", time: "לפני יומיים", excerpt: "Flutter Entertainment מאחדת את הפלטפורמות בארה\"ב — שלוש מדינות בפול משותף." },
+  { title: "Resorts World סוגרת חדר פוקר עם 29 שולחנות", category: "תעשייה", author: "מערכת", time: "לפני 3 ימים", excerpt: "ירידה של 8% בתיירות ללאס וגאס ב-2025 מובילה לסגירת חדר הפוקר." },
 ];
 
 export default function LatestPage() {
   return (
-    <Section className="pt-32">
-      <SectionLabel>Latest</SectionLabel>
-      <SectionTitle as="h1">Latest News & Updates</SectionTitle>
-
-      <div className="mt-12 space-y-6 max-w-4xl">
-        {ARTICLES.map((article, i) => (
-          <a key={i} href="#" className="group block">
-            <Card className="hover:border-emerald-800/60 transition-all">
-              <CardContent className="p-6">
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex-1">
-                    <Badge variant="premium" className="mb-3">{article.category}</Badge>
-                    <h2 className="text-xl font-semibold text-ivory-50 group-hover:text-emerald-400 transition-colors mb-2">
-                      {article.title}
-                    </h2>
-                    <p className="text-sm text-platinum-400 mb-3">{article.excerpt}</p>
-                    <div className="flex items-center gap-4 text-xs text-platinum-500">
-                      <span className="flex items-center gap-1"><User className="w-3 h-3" />{article.author}</span>
-                      <span className="flex items-center gap-1"><Clock className="w-3 h-3" />{article.time}</span>
-                    </div>
-                  </div>
-                  <div className="w-32 h-20 rounded-lg bg-graphite-800 shrink-0 hidden md:block" />
-                </div>
-              </CardContent>
-            </Card>
+    <div className="mx-auto max-w-4xl px-6 py-12">
+      <div className="mb-10">
+        <p className="text-[10px] font-bold text-accent-500 tracking-wider mb-1">LATEST</p>
+        <h1 className="text-3xl font-black text-ink-900" style={{ fontFamily: "'Noto Serif Hebrew', Georgia, serif" }}>חדשות אחרונות</h1>
+      </div>
+      <div className="space-y-5">
+        {ARTICLES.map((article) => (
+          <a key={article.title} href="#" className="group block p-6 rounded-xl bg-card border border-paper-300 hover:shadow-elevated transition-all">
+            <span className="text-[10px] font-bold text-accent-500 bg-accent-500/10 px-2 py-0.5 rounded-full">{article.category}</span>
+            <h2 className="text-xl font-bold text-ink-900 mt-2 group-hover:text-accent-500 transition-colors leading-snug">{article.title}</h2>
+            <p className="text-sm text-ink-500 mt-2">{article.excerpt}</p>
+            <div className="mt-3 flex items-center gap-4 text-xs text-ink-400">
+              <span className="flex items-center gap-1"><User className="w-3 h-3" />{article.author}</span>
+              <span className="flex items-center gap-1"><Clock className="w-3 h-3" />{article.time}</span>
+            </div>
           </a>
         ))}
       </div>
-    </Section>
+    </div>
   );
 }

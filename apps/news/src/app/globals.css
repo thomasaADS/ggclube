@@ -1,1 +1,71 @@
-@import "@ggclube/ui/globals.css";
+@import "tailwindcss";
+
+/*
+ * CLUBGG NEWS — WARM EDITORIAL MAGAZINE
+ * Cream/warm paper tones, like a luxury print magazine
+ * Rich, warm, inviting — NOT sterile white
+ */
+
+@theme {
+  /* === WARM PAPER PALETTE === */
+  --color-paper-50: #fdf8f0;
+  --color-paper-100: #f9f3e8;
+  --color-paper-200: #f0e8d8;
+  --color-paper-300: #ddd3be;
+  --color-paper-400: #c4b89e;
+
+  /* === INK (text) === */
+  --color-ink-950: #1a1008;
+  --color-ink-900: #2c1e0e;
+  --color-ink-800: #3d2b14;
+  --color-ink-700: #4a3520;
+  --color-ink-600: #5c4a33;
+  --color-ink-500: #7a6b55;
+  --color-ink-400: #9c8d77;
+  --color-ink-300: #b8ab97;
+
+  /* === ACCENT — DEEP RED === */
+  --color-accent-700: #7f1d1d;
+  --color-accent-600: #991b1b;
+  --color-accent-500: #b91c1c;
+  --color-accent-400: #dc2626;
+
+  /* === ACCENT GOLD === */
+  --color-accent-gold: #92700c;
+
+  /* === FRESH GREEN (for badges) === */
+  --color-fresh-600: #15803d;
+  --color-fresh-500: #16a34a;
+
+  /* === WARM WHITE for cards === */
+  --color-card: #fffcf5;
+
+  /* === TYPOGRAPHY === */
+  --font-display: 'Georgia', 'Times New Roman', 'Noto Serif Hebrew', serif;
+  --font-body: 'Inter', 'SF Pro Text', -apple-system, system-ui, sans-serif;
+  --font-serif: 'Georgia', 'Times New Roman', 'Noto Serif Hebrew', serif;
+
+  /* === SHADOWS === */
+  --shadow-sm: 0 1px 2px rgba(40,30,10,0.06);
+  --shadow-card: 0 1px 4px rgba(40,30,10,0.08), 0 1px 2px rgba(40,30,10,0.04);
+  --shadow-elevated: 0 6px 20px rgba(40,30,10,0.10);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: var(--color-paper-50);
+    color: var(--color-ink-800);
+    line-height: 1.7;
+  }
+
+  ::selection {
+    background-color: #fde68a;
+    color: var(--color-ink-900);
+  }
+}

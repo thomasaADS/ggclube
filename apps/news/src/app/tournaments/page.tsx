@@ -1,49 +1,45 @@
-import { Section, SectionLabel, SectionTitle, SectionDescription, Badge, Card, CardContent, Button } from "@ggclube/ui";
-import { Calendar, MapPin, ArrowRight } from "lucide-react";
+import { MapPin, Calendar, Trophy } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Tournament Center — Poker Tournament Coverage & Schedule",
-  description: "Complete poker tournament coverage — schedules, results, live updates, and analysis from major tournaments worldwide.",
+  title: "טורנירים — לוח טורנירי פוקר 2026",
+  description: "לוח טורנירי הפוקר המלא ל-2026. WSOP, EPT, WPT, Triton ועוד — תאריכים, מיקומים ופרטים.",
 };
 
 const TOURNAMENTS = [
-  { name: "WSOP 2026", location: "Las Vegas, USA", date: "May 28 – Jul 16, 2026", status: "Upcoming", events: "108", prizePool: "$350M+" },
-  { name: "EPT Barcelona", location: "Barcelona, Spain", date: "Aug 15 – 28, 2026", status: "Upcoming", events: "62", prizePool: "€45M+" },
-  { name: "WPT World Championship", location: "Las Vegas, USA", date: "Dec 2 – 18, 2026", status: "Announced", events: "TBA", prizePool: "TBA" },
-  { name: "APT Manila", location: "Manila, Philippines", date: "Apr 10 – 22, 2026", status: "Upcoming", events: "38", prizePool: "$5M+" },
-  { name: "LAPT São Paulo", location: "São Paulo, Brazil", date: "Jun 5 – 15, 2026", status: "Upcoming", events: "25", prizePool: "R$20M+" },
-  { name: "EPT Monte Carlo", location: "Monaco", date: "Apr 25 – May 6, 2026", status: "Upcoming", events: "55", prizePool: "€40M+" },
+  { name: "WSOP Europe 2026", location: "פראג, צ׳כיה", dates: "31 מרץ – 12 אפריל 2026", events: 15, buyIn: "€10M GTD Main Event", status: "בקרוב" },
+  { name: "EPT מונטה קרלו", location: "מונקו", dates: "30 אפריל – 10 מאי 2026", events: 40, buyIn: "€5,300 Main Event", status: "בקרוב" },
+  { name: "Triton מונטנגרו", location: "מונטנגרו", dates: "13 – 28 מאי 2026", events: 12, buyIn: "High Roller Series", status: "בקרוב" },
+  { name: "WSOP 2026 — סדרה ראשית", location: "לאס וגאס, ארה\"ב", dates: "26 מאי – 15 יולי 2026", events: 100, buyIn: "$10,000 Main Event", status: "בקרוב" },
+  { name: "WPT Rolling Thunder", location: "לינקולן, קליפורניה", dates: "29 מרץ 2026", events: 1, buyIn: "$3,500", status: "בקרוב" },
+  { name: "APT טייפה", location: "טייפה, טייוואן", dates: "22 אפריל – 3 מאי 2026", events: 20, buyIn: "משתנה", status: "בקרוב" },
 ];
 
 export default function TournamentsPage() {
   return (
-    <Section className="pt-32">
-      <SectionLabel>Tournament Center</SectionLabel>
-      <SectionTitle as="h1">Tournament Coverage & Schedule</SectionTitle>
-      <SectionDescription>Complete coverage of major poker tournaments worldwide — schedules, results, live updates, and expert analysis.</SectionDescription>
-
-      <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="mx-auto max-w-5xl px-6 py-12">
+      <div className="mb-10">
+        <p className="text-[10px] font-bold text-accent-500 tracking-wider mb-1">TOURNAMENTS</p>
+        <h1 className="text-3xl font-black text-ink-900" style={{ fontFamily: "'Noto Serif Hebrew', Georgia, serif" }}>טורנירי פוקר 2026</h1>
+        <p className="mt-2 text-ink-500">לוח הטורנירים המלא — WSOP, EPT, WPT, Triton ועוד.</p>
+      </div>
+      <div className="space-y-4">
         {TOURNAMENTS.map((t) => (
-          <Card key={t.name} className="hover:border-emerald-800/60 transition-all">
-            <CardContent className="p-6">
-              <Badge variant="premium" className="mb-3">{t.status}</Badge>
-              <h3 className="text-lg font-semibold text-ivory-50 mb-3">{t.name}</h3>
-              <div className="space-y-2 text-sm text-platinum-400">
-                <div className="flex items-center gap-2"><MapPin className="w-3.5 h-3.5 text-platinum-500" />{t.location}</div>
-                <div className="flex items-center gap-2"><Calendar className="w-3.5 h-3.5 text-platinum-500" />{t.date}</div>
+          <div key={t.name} className="p-6 rounded-xl bg-card border border-paper-300 hover:shadow-elevated transition-all">
+            <div className="flex items-start justify-between gap-4 flex-wrap">
+              <div>
+                <h2 className="text-lg font-black text-ink-900">{t.name}</h2>
+                <div className="flex flex-wrap gap-4 mt-2 text-sm text-ink-500">
+                  <span className="flex items-center gap-1.5"><MapPin className="w-3.5 h-3.5" />{t.location}</span>
+                  <span className="flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5" />{t.dates}</span>
+                </div>
+                <p className="text-sm text-ink-400 mt-1">{t.events} אירועים • {t.buyIn}</p>
               </div>
-              <div className="mt-4 flex items-center gap-4 text-xs text-platinum-500">
-                <span>{t.events} Events</span>
-                <span>Prize Pool: {t.prizePool}</span>
-              </div>
-              <div className="mt-4">
-                <Button variant="ghost" size="sm">View Coverage <ArrowRight className="w-3.5 h-3.5" /></Button>
-              </div>
-            </CardContent>
-          </Card>
+              <span className="text-[11px] font-bold text-card bg-accent-500 px-3 py-1 rounded-full">{t.status}</span>
+            </div>
+          </div>
         ))}
       </div>
-    </Section>
+    </div>
   );
 }
