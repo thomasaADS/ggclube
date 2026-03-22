@@ -1,32 +1,32 @@
 import { Section, SectionLabel, SectionTitle, SectionDescription, Button, Badge } from "@ggclube/ui";
-import { ArrowRight } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "How Verification Works — GGClube Trust Standards",
-  description: "Learn how GGClube verifies agents — our documentation requirements, review criteria, status definitions, and moderation process explained transparently.",
+  title: "איך האימות עובד — סטנדרטים של אמון GGClube",
+  description: "למדו איך GGClube מאמתת סוכנים — דרישות התיעוד, קריטריוני הבדיקה, הגדרות הסטטוסים ותהליך המנהלת מוסברים בשקיפות.",
 };
 
 export default function VerificationPage() {
   return (
     <>
       <Section className="pt-32">
-        <SectionLabel>Trust & Verification</SectionLabel>
-        <SectionTitle as="h1">How Verification Works</SectionTitle>
+        <SectionLabel>אמון ואימות</SectionLabel>
+        <SectionTitle as="h1">איך האימות עובד</SectionTitle>
         <SectionDescription>
-          Transparency is core to our trust model. Here is exactly how our verification process works — the criteria, the statuses, and what happens when concerns are raised.
+          שקיפות היא הליבה של מודל האמון שלנו. כאן מוסבר בדיוק איך תהליך האימות שלנו עובד — הקריטריונים, הסטטוסים ומה קורה כשמועלים חששות.
         </SectionDescription>
       </Section>
 
       <Section className="border-t border-graphite-800">
-        <h2 className="text-2xl font-bold text-ivory-50 mb-8">Verification Statuses</h2>
+        <h2 className="text-2xl font-bold text-ivory-50 mb-8">סטטוסי אימות</h2>
         <div className="space-y-4 max-w-3xl">
           {[
-            { badge: "verified" as const, title: "Verified by Our Team", desc: "All required documentation has been submitted and reviewed. The agent has passed reference checks, compliance review, and has agreed to community standards." },
-            { badge: "unverified" as const, title: "Unverified Profile", desc: "A profile that has not yet completed the verification process or has not submitted required documentation." },
-            { badge: "under-review" as const, title: "Under Review", desc: "An existing profile where new information, a community report, or compliance check requires additional review by our team." },
-            { badge: "concern" as const, title: "Reported Concerns", desc: "Community-submitted concerns have been logged. Our team is investigating. No determination has been made." },
-            { badge: "paused" as const, title: "Listing Paused / Removed Pending Review", desc: "The profile has been temporarily suspended while a review is conducted. This is a protective measure, not a final determination." },
+            { badge: "verified" as const, title: "מאומת על ידי הצוות שלנו", desc: "כל התיעוד הנדרש הוגש ונבדק. הסוכן עבר בדיקת המלצות, בדיקת ציות והסכים לסטנדרטים הקהילתיים." },
+            { badge: "unverified" as const, title: "פרופיל לא מאומת", desc: "פרופיל שעדיין לא השלים את תהליך האימות או לא הגיש את התיעוד הנדרש." },
+            { badge: "under-review" as const, title: "בבדיקה", desc: "פרופיל קיים שבו מידע חדש, דיווח קהילתי או בדיקת ציות דורשים בדיקה נוספת על ידי הצוות שלנו." },
+            { badge: "concern" as const, title: "חששות שדווחו", desc: "חששות שהוגשו על ידי הקהילה נרשמו. הצוות שלנו חוקר. לא נקבעה קביעה סופית." },
+            { badge: "paused" as const, title: "רישום מושהה / הוסר בהמתנה לבדיקה", desc: "הפרופיל הושעה זמנית בזמן שמתבצעת בדיקה. זהו אמצעי הגנה, לא קביעה סופית." },
           ].map((s) => (
             <div key={s.title} className="flex items-start gap-4 p-5 rounded-xl border border-graphite-700/50 bg-obsidian-800/30">
               <Badge variant={s.badge} className="mt-0.5 shrink-0">{s.badge.replace("-", " ")}</Badge>
@@ -40,15 +40,15 @@ export default function VerificationPage() {
       </Section>
 
       <Section className="border-t border-graphite-800 bg-obsidian-900/30">
-        <h2 className="text-2xl font-bold text-ivory-50 mb-8">Documentation Required</h2>
+        <h2 className="text-2xl font-bold text-ivory-50 mb-8">תיעוד נדרש</h2>
         <div className="grid md:grid-cols-2 gap-6 max-w-4xl">
           {[
-            "Government-issued identification",
-            "Proof of poker industry activity",
-            "At least two community references",
-            "Agreement to community standards and terms",
-            "Jurisdiction disclosure",
-            "Optional: social media profiles, portfolio, testimonials",
+            "תעודה מזהה ממשלתית",
+            "הוכחת פעילות בתעשיית הפוקר",
+            "לפחות שתי המלצות קהילתיות",
+            "הסכמה לסטנדרטים קהילתיים ותנאי שימוש",
+            "גילוי תחום שיפוט",
+            "אופציונלי: פרופילי מדיה חברתית, תיק עבודות, המלצות",
           ].map((item) => (
             <div key={item} className="flex items-start gap-3 p-4 rounded-lg bg-obsidian-800/40 border border-graphite-700/30">
               <div className="w-2 h-2 rounded-full bg-emerald-500 mt-2 shrink-0" />
@@ -59,12 +59,12 @@ export default function VerificationPage() {
       </Section>
 
       <Section className="border-t border-graphite-800">
-        <h2 className="text-2xl font-bold text-ivory-50 mb-6">Report a Concern</h2>
+        <h2 className="text-2xl font-bold text-ivory-50 mb-6">דיווח על חשש</h2>
         <p className="text-platinum-400 max-w-2xl mb-6">
-          If you have a concern about any listed agent or profile, you can submit a report. All reports are reviewed confidentially. We do not publish accusations — we investigate and update statuses based on evidence.
+          אם יש לכם חשש לגבי סוכן או פרופיל רשום כלשהו, תוכלו להגיש דיווח. כל הדיווחים נבדקים בסודיות. אנחנו לא מפרסמים האשמות — אנחנו חוקרים ומעדכנים סטטוסים על בסיס ראיות.
         </p>
         <a href="/support">
-          <Button variant="outline" size="lg">Report a Concern <ArrowRight className="w-4 h-4" /></Button>
+          <Button variant="outline" size="lg">דיווח על חשש <ArrowLeft className="w-4 h-4" /></Button>
         </a>
       </Section>
     </>

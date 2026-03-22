@@ -11,13 +11,14 @@ interface FooterProps {
   columns: FooterColumn[];
   legalLinks: { label: string; href: string }[];
   ecosystemLinks: { label: string; href: string }[];
+  rtl?: boolean;
 }
 
-export function Footer({ brand, brandName, columns, legalLinks, ecosystemLinks }: FooterProps) {
+export function Footer({ brand, brandName, columns, legalLinks, ecosystemLinks, rtl = false }: FooterProps) {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-graphite-700/50 bg-obsidian-950">
+    <footer className="border-t border-graphite-700/50 bg-obsidian-950" dir={rtl ? "rtl" : "ltr"}>
       {/* Ecosystem Bar */}
       <div className="border-b border-graphite-800">
         <div className="mx-auto max-w-7xl px-6 py-4 flex flex-wrap items-center gap-6">

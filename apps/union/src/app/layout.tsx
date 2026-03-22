@@ -1,91 +1,91 @@
 import type { Metadata } from "next";
 import { BRAND } from "@ggclube/brand";
+import { Nav, Footer } from "@ggclube/ui";
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: `${BRAND.sites.union.name} — ${BRAND.sites.union.tagline}`,
-    template: `%s | ${BRAND.sites.union.name}`,
+    default: "ClubGG האיחוד — הקהילה הרשמית של שחקני הפוקר בישראל",
+    template: "%s | ClubGG האיחוד",
   },
-  description: BRAND.sites.union.description,
+  description: "ClubGG האיחוד — הפלטפורמה המובילה בישראל לשחקני פוקר. סוכנים מאומתים, חינוך מקצועי, חדשות וקהילה. הצטרפו עכשיו.",
   metadataBase: new URL(BRAND.sites.union.url),
 };
 
 const NAV_LINKS = [
-  { label: "About", href: "/about" },
-  { label: "For Agents", href: "/for-agents" },
-  { label: "For Players", href: "/for-players" },
-  { label: "Verification", href: "/how-verification-works" },
-  { label: "Our Network", href: "/our-network" },
-  { label: "FAQ", href: "/faq" },
-  { label: "Contact", href: "/contact" },
+  { label: "אודות", href: "/about" },
+  { label: "לסוכנים", href: "/for-agents" },
+  { label: "לשחקנים", href: "/for-players" },
+  { label: "אימות", href: "/how-verification-works" },
+  { label: "שאלות נפוצות", href: "/faq" },
+  { label: "צור קשר", href: "/contact" },
 ];
 
 const FOOTER_COLUMNS = [
   {
-    title: "Platform",
+    title: "הפלטפורמה",
     links: [
-      { label: "About Us", href: "/about" },
-      { label: "Our Network", href: "/our-network" },
-      { label: "Why GGClube", href: "/why-ggclube" },
-      { label: "Partners", href: "/partners" },
+      { label: "אודות", href: "/about" },
+      { label: "למה ClubGG האיחוד", href: "/why-ggclube" },
+      { label: "שותפים", href: "/partners" },
     ],
   },
   {
-    title: "Join",
+    title: "הצטרפות",
     links: [
-      { label: "For Agents", href: "/for-agents" },
-      { label: "For Players", href: "/for-players" },
-      { label: "Apply as Agent", href: "/apply/agent" },
-      { label: "Apply as Player", href: "/apply/player" },
+      { label: "לסוכנים", href: "/for-agents" },
+      { label: "לשחקנים", href: "/for-players" },
+      { label: "הגשת מועמדות — סוכן", href: "/apply/agent" },
+      { label: "הרשמה — שחקן", href: "/apply/player" },
     ],
   },
   {
-    title: "Trust",
+    title: "אמון ואבטחה",
     links: [
-      { label: "Verification", href: "/how-verification-works" },
-      { label: "Community Standards", href: "/community-standards" },
-      { label: "Support", href: "/support" },
-      { label: "FAQ", href: "/faq" },
+      { label: "תהליך האימות", href: "/how-verification-works" },
+      { label: "כללי הקהילה", href: "/community-standards" },
+      { label: "תמיכה", href: "/support" },
+      { label: "שאלות נפוצות", href: "/faq" },
     ],
   },
 ];
 
 const LEGAL_LINKS = [
-  { label: "Terms", href: "/legal/terms" },
-  { label: "Privacy", href: "/legal/privacy" },
-  { label: "Cookies", href: "/legal/cookies" },
-  { label: "Accessibility", href: "/legal/accessibility" },
-  { label: "Disclaimer", href: "/legal/disclaimer" },
-  { label: "Responsible Play", href: "/legal/responsible-play" },
+  { label: "תנאי שימוש", href: "/legal/terms" },
+  { label: "פרטיות", href: "/legal/privacy" },
+  { label: "עוגיות", href: "/legal/cookies" },
+  { label: "נגישות", href: "/legal/accessibility" },
+  { label: "הצהרה משפטית", href: "/legal/disclaimer" },
+  { label: "משחק אחראי", href: "/legal/responsible-play" },
 ];
 
 const ECOSYSTEM_LINKS = [
-  { label: "GGClube Union", href: BRAND.sites.union.url },
+  { label: "ClubGG האיחוד", href: BRAND.sites.union.url },
   { label: "GGClube News", href: BRAND.sites.news.url },
   { label: "GGClube Academy", href: BRAND.sites.academy.url },
 ];
 
-import { Nav, Footer } from "@ggclube/ui";
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="he" dir="rtl" className="dark">
       <body className="min-h-screen bg-obsidian-950 text-ivory-100 antialiased">
         <Nav
           brand="union"
-          brandName="GGClube"
+          brandName="ClubGG האיחוד"
           links={NAV_LINKS}
-          ctaLabel="Join the Network"
+          ctaLabel="הצטרפו עכשיו"
           ctaHref="/apply/agent"
+          logoSrc="/ggclub-logo.png"
+          rtl={true}
         />
         <main className="pt-16">{children}</main>
         <Footer
           brand="union"
-          brandName="GGClube Union"
+          brandName="ClubGG האיחוד"
           columns={FOOTER_COLUMNS}
           legalLinks={LEGAL_LINKS}
           ecosystemLinks={ECOSYSTEM_LINKS}
+          rtl={true}
         />
       </body>
     </html>

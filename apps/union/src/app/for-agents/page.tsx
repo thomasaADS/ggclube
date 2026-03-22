@@ -1,40 +1,40 @@
 import { Section, SectionLabel, SectionTitle, SectionDescription, Button, Card, CardContent, Badge } from "@ggclube/ui";
-import { CheckCircle, ArrowRight, Shield, TrendingUp, Users, Award, HelpCircle } from "lucide-react";
+import { CheckCircle, ArrowLeft, Shield, TrendingUp, Users, Award, HelpCircle } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "For Agents — Join the Verified Agent Network",
-  description: "Apply to become a verified GGClube agent. Build credibility, grow your network, and operate within a trusted ecosystem with professional standards.",
+  title: "לסוכנים — הצטרפו לרשת הסוכנים המאומתים",
+  description: "הגישו מועמדות להיות סוכן מאומת של GGClube. בנו אמינות, הגדילו את הרשת שלכם ופעלו בתוך מערכת אמינה עם סטנדרטים מקצועיים.",
 };
 
 export default function ForAgentsPage() {
   return (
     <>
       <Section className="pt-32">
-        <Badge variant="verified" className="mb-6 bg-club-red-900/40 text-club-red-400 border-club-red-800/40">Agent Program</Badge>
+        <Badge variant="verified" className="mb-6 bg-club-red-900/40 text-club-red-400 border-club-red-800/40">תוכנית סוכנים</Badge>
         <SectionTitle as="h1">
-          Grow Your Reputation.<br />Join the Verified Network.
+          הגדילו את המוניטין שלכם.<br />הצטרפו לרשת המאומתת.
         </SectionTitle>
         <SectionDescription>
-          GGClube Union is the only poker ecosystem where agents are properly vetted, publicly verified, and held to a transparent standard. If you are serious about your reputation, this is where it begins.
+          GGClube Union היא מערכת הפוקר היחידה שבה סוכנים נבדקים כראוי, מאומתים באופן פומבי ומחויבים לסטנדרט שקוף. אם אתם רציניים לגבי המוניטין שלכם, כאן זה מתחיל.
         </SectionDescription>
         <div className="mt-8">
           <a href="/apply/agent">
-            <Button variant="primary" size="xl" className="bg-club-red-600 hover:bg-club-red-500">Start Your Application <ArrowRight className="w-5 h-5" /></Button>
+            <Button variant="primary" size="xl" className="bg-club-red-600 hover:bg-club-red-500">התחילו את ההגשה <ArrowLeft className="w-5 h-5" /></Button>
           </a>
         </div>
       </Section>
 
       <Section className="border-t border-graphite-800">
-        <h2 className="text-2xl font-bold text-ivory-50 mb-10">What You Get</h2>
+        <h2 className="text-2xl font-bold text-ivory-50 mb-10">מה תקבלו</h2>
         <div className="grid md:grid-cols-3 gap-6">
           {[
-            { icon: Shield, title: "Verified Badge", desc: "A public verification status that proves you have been reviewed and approved by the GGClube team." },
-            { icon: TrendingUp, title: "Network Growth", desc: "Visibility to players and partners across the entire GGClube ecosystem — News, Academy, and Union." },
-            { icon: Users, title: "Community Trust", desc: "Membership in a professional network with clear standards, moderation, and community support." },
-            { icon: Award, title: "Partner Benefits", desc: "Access to exclusive partnerships, events, and opportunities available only to verified agents." },
-            { icon: HelpCircle, title: "Dedicated Support", desc: "A direct support channel for verification questions, documentation help, and account management." },
-            { icon: CheckCircle, title: "Compliance Framework", desc: "Clear guidelines and standards so you always know what is expected and how to maintain your status." },
+            { icon: Shield, title: "תג מאומת", desc: "סטטוס אימות פומבי שמוכיח שעברתם בדיקה ואושרתם על ידי צוות GGClube." },
+            { icon: TrendingUp, title: "צמיחת רשת", desc: "חשיפה לשחקנים ושותפים בכל מערכת GGClube — News, Academy ו-Union." },
+            { icon: Users, title: "אמון קהילתי", desc: "חברות ברשת מקצועית עם סטנדרטים ברורים, מתינות ותמיכה קהילתית." },
+            { icon: Award, title: "הטבות שותפות", desc: "גישה לשותפויות, אירועים והזדמנויות בלעדיות הזמינות רק לסוכנים מאומתים." },
+            { icon: HelpCircle, title: "תמיכה ייעודית", desc: "ערוץ תמיכה ישיר לשאלות אימות, עזרה בתיעוד וניהול חשבון." },
+            { icon: CheckCircle, title: "מסגרת ציות", desc: "הנחיות וסטנדרטים ברורים כדי שתמיד תדעו מה נדרש ואיך לשמור על הסטטוס שלכם." },
           ].map((item) => (
             <Card key={item.title}>
               <CardContent className="p-6">
@@ -48,13 +48,13 @@ export default function ForAgentsPage() {
       </Section>
 
       <Section className="border-t border-graphite-800 bg-obsidian-900/30">
-        <h2 className="text-2xl font-bold text-ivory-50 mb-10">Vetting Process</h2>
+        <h2 className="text-2xl font-bold text-ivory-50 mb-10">תהליך הבדיקה</h2>
         <div className="grid md:grid-cols-4 gap-6">
           {[
-            { step: "01", title: "Apply", desc: "Submit your application with profile details, experience, and references." },
-            { step: "02", title: "Review", desc: "Our team reviews your documentation, verifies references, and checks compliance." },
-            { step: "03", title: "Approval", desc: "Once approved, you receive your verified status and access to the network." },
-            { step: "04", title: "Ongoing", desc: "Maintain your status through continued compliance and community standards." },
+            { step: "01", title: "הגשה", desc: "הגישו את המועמדות עם פרטי פרופיל, ניסיון והמלצות." },
+            { step: "02", title: "בדיקה", desc: "הצוות שלנו בודק את התיעוד, מאמת המלצות ובודק ציות." },
+            { step: "03", title: "אישור", desc: "לאחר האישור, תקבלו את סטטוס המאומת וגישה לרשת." },
+            { step: "04", title: "שוטף", desc: "שמרו על הסטטוס שלכם דרך ציות מתמשך וסטנדרטים קהילתיים." },
           ].map((s) => (
             <div key={s.step} className="p-6 rounded-xl border border-graphite-700/50 bg-obsidian-800/30">
               <span className="text-3xl font-bold text-emerald-800">{s.step}</span>
@@ -66,14 +66,14 @@ export default function ForAgentsPage() {
       </Section>
 
       <Section className="border-t border-graphite-800">
-        <h2 className="text-2xl font-bold text-ivory-50 mb-8">Frequently Asked Questions</h2>
+        <h2 className="text-2xl font-bold text-ivory-50 mb-8">שאלות נפוצות</h2>
         <div className="max-w-3xl space-y-6">
           {[
-            { q: "How long does the verification process take?", a: "Typically 5–10 business days. We may request additional documentation which can extend the timeline." },
-            { q: "What documentation is required?", a: "Government-issued ID, proof of activity, at least two community references, and agreement to our community standards." },
-            { q: "Can my status be revoked?", a: "Yes. If community standards are violated or concerns are substantiated, your status may be changed to 'Under Review' or 'Removed Pending Review'." },
-            { q: "Is there a cost to apply?", a: "No. The application and verification process is free." },
-            { q: "What jurisdictions are supported?", a: "We accept applications globally. However, agents must comply with the laws and regulations of their operating jurisdiction." },
+            { q: "כמה זמן לוקח תהליך האימות?", a: "בדרך כלל 5–10 ימי עסקים. ייתכן שנבקש תיעוד נוסף שעלול להאריך את לוח הזמנים." },
+            { q: "אילו מסמכים נדרשים?", a: "תעודה מזהה ממשלתית, הוכחת פעילות, לפחות שתי המלצות קהילתיות והסכמה לסטנדרטים הקהילתיים שלנו." },
+            { q: "האם הסטטוס שלי יכול להישלל?", a: "כן. אם הסטנדרטים הקהילתיים מופרים או שחששות מאומתים, הסטטוס שלכם עשוי להשתנות ל'בבדיקה' או 'הוסר בהמתנה לבדיקה'." },
+            { q: "האם יש עלות להגשה?", a: "לא. תהליך ההגשה והאימות הוא חינמי." },
+            { q: "אילו תחומי שיפוט נתמכים?", a: "אנחנו מקבלים מועמדויות מכל העולם. עם זאת, סוכנים חייבים לציית לחוקים ולתקנות של תחום השיפוט שבו הם פועלים." },
           ].map((faq) => (
             <div key={faq.q} className="p-5 rounded-xl border border-graphite-700/50 bg-obsidian-800/20">
               <h4 className="font-medium text-ivory-100 mb-2">{faq.q}</h4>
@@ -85,12 +85,12 @@ export default function ForAgentsPage() {
 
       <section className="border-t border-graphite-800 bg-club-red-900/10">
         <div className="mx-auto max-w-7xl px-6 py-20 text-center">
-          <h2 className="text-3xl font-bold text-ivory-50">Ready to Get Verified?</h2>
-          <p className="mt-4 text-platinum-400">Start your agent application today.</p>
+          <h2 className="text-3xl font-bold text-ivory-50">מוכנים להיות מאומתים?</h2>
+          <p className="mt-4 text-platinum-400">התחילו את הגשת המועמדות כסוכן היום.</p>
           <div className="mt-6">
-            <a href="/apply/agent"><Button variant="primary" size="xl" className="bg-club-red-600 hover:bg-club-red-500">Start Application <ArrowRight className="w-5 h-5" /></Button></a>
+            <a href="/apply/agent"><Button variant="primary" size="xl" className="bg-club-red-600 hover:bg-club-red-500">התחלת הגשה <ArrowLeft className="w-5 h-5" /></Button></a>
           </div>
-          <p className="mt-4 text-xs text-platinum-500">By applying, you agree to our <a href="/legal/terms" className="underline hover:text-platinum-300">Terms</a> and <a href="/community-standards" className="underline hover:text-platinum-300">Community Standards</a>.</p>
+          <p className="mt-4 text-xs text-platinum-500">בהגשת מועמדות, אתם מסכימים ל<a href="/legal/terms" className="underline hover:text-platinum-300">תנאי השימוש</a> ול<a href="/community-standards" className="underline hover:text-platinum-300">סטנדרטים הקהילתיים</a>.</p>
         </div>
       </section>
     </>

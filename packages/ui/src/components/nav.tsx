@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { cn } from "../lib/utils";
 import { Button } from "./button";
 
@@ -18,26 +18,26 @@ interface NavProps {
   links: NavLink[];
   ctaLabel: string;
   ctaHref: string;
+  logoSrc?: string;
+  rtl?: boolean;
 }
 
-const brandColors = {
-  union: "emerald",
-  news: "emerald",
-  academy: "emerald",
-} as const;
-
-export function Nav({ brand, brandName, links, ctaLabel, ctaHref }: NavProps) {
+export function Nav({ brand, brandName, links, ctaLabel, ctaHref, logoSrc, rtl = false }: NavProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-[30] border-b border-graphite-700/50">
+    <header className="fixed top-0 left-0 right-0 z-[30] border-b border-graphite-700/50" dir={rtl ? "rtl" : "ltr"}>
       <div className="bg-obsidian-950/80 backdrop-blur-xl">
         <nav className="mx-auto max-w-7xl flex items-center justify-between px-6 h-16">
           {/* Logo */}
           <a href="/" className="flex items-center gap-3 group">
-            <div className="w-8 h-8 rounded-lg bg-emerald-600 flex items-center justify-center text-ivory-50 font-bold text-sm group-hover:bg-emerald-500 transition-colors">
-              GG
-            </div>
+            {logoSrc ? (
+              <img src={logoSrc} alt={brandName} className="h-9 w-9 rounded-lg object-contain" />
+            ) : (
+              <div className="w-9 h-9 rounded-lg bg-emerald-600 flex items-center justify-center text-ivory-50 font-bold text-sm group-hover:bg-emerald-500 transition-colors">
+                GG
+              </div>
+            )}
             <span className="text-ivory-50 font-semibold tracking-tight text-lg">
               {brandName}
             </span>

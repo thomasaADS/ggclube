@@ -1,26 +1,26 @@
 import { Section, SectionLabel, SectionTitle, SectionDescription, Button, Card, CardContent, Badge } from "@ggclube/ui";
-import { CheckCircle, ArrowRight, BookOpen, Newspaper, Shield, Users } from "lucide-react";
+import { CheckCircle, ArrowLeft, BookOpen, Newspaper, Shield, Users } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "For Players — Join the GGClube Community",
-  description: "Join GGClube as a player and access verified agents, elite education, tournament coverage, and a trusted global poker community.",
+  title: "לשחקנים — הצטרפו לקהילת GGClube",
+  description: "הצטרפו ל-GGClube כשחקנים וקבלו גישה לסוכנים מאומתים, חינוך עילית, סיקור טורנירים וקהילת פוקר עולמית אמינה.",
 };
 
 export default function ForPlayersPage() {
   return (
     <>
       <Section className="pt-32">
-        <Badge variant="new" className="mb-6">Player Community</Badge>
+        <Badge variant="new" className="mb-6">קהילת שחקנים</Badge>
         <SectionTitle as="h1">
-          Play Smarter.<br />Trust Your Network.
+          שחקו חכם יותר.<br />סמכו על הרשת שלכם.
         </SectionTitle>
         <SectionDescription>
-          GGClube gives serious players what they have always needed: verified agent connections, world-class education, reliable tournament intelligence, and a community that holds itself to a higher standard.
+          GGClube נותנת לשחקנים רציניים את מה שתמיד היה חסר להם: חיבורים לסוכנים מאומתים, חינוך ברמה עולמית, מודיעין טורנירים אמין וקהילה שמחזיקה את עצמה בסטנדרט גבוה יותר.
         </SectionDescription>
         <div className="mt-8">
           <a href="/apply/player">
-            <Button variant="primary" size="xl">Join as Player <ArrowRight className="w-5 h-5" /></Button>
+            <Button variant="primary" size="xl">הצטרפות כשחקן <ArrowLeft className="w-5 h-5" /></Button>
           </a>
         </div>
       </Section>
@@ -28,10 +28,10 @@ export default function ForPlayersPage() {
       <Section className="border-t border-graphite-800">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
-            { icon: Shield, title: "Verified Agents", desc: "Browse a directory of agents who have been vetted and approved by the GGClube team." },
-            { icon: BookOpen, title: "Elite Education", desc: "Access courses and coaching from GGClube Academy — from beginner fundamentals to advanced strategy." },
-            { icon: Newspaper, title: "Tournament Intel", desc: "Stay informed with daily coverage, rankings, and analysis from GGClube News." },
-            { icon: Users, title: "Trusted Community", desc: "Join a network of players and professionals who share a commitment to trust and fair play." },
+            { icon: Shield, title: "סוכנים מאומתים", desc: "עיינו בספריית סוכנים שנבדקו ואושרו על ידי צוות GGClube." },
+            { icon: BookOpen, title: "חינוך עילית", desc: "גישה לקורסים ואימון מ-GGClube Academy — מיסודות למתחילים ועד אסטרטגיה מתקדמת." },
+            { icon: Newspaper, title: "מודיעין טורנירים", desc: "הישארו מעודכנים עם סיקור יומי, דירוגים וניתוחים מ-GGClube News." },
+            { icon: Users, title: "קהילה אמינה", desc: "הצטרפו לרשת של שחקנים ואנשי מקצוע שחולקים מחויבות לאמון ולמשחק הוגן." },
           ].map((item) => (
             <Card key={item.title}>
               <CardContent className="p-6">
@@ -46,10 +46,10 @@ export default function ForPlayersPage() {
 
       <section className="border-t border-graphite-800 bg-emerald-900/10">
         <div className="mx-auto max-w-7xl px-6 py-20 text-center">
-          <h2 className="text-3xl font-bold text-ivory-50">Start Your Journey</h2>
-          <p className="mt-4 text-platinum-400 max-w-lg mx-auto">Join the GGClube community and get access to the full ecosystem.</p>
+          <h2 className="text-3xl font-bold text-ivory-50">התחילו את המסע שלכם</h2>
+          <p className="mt-4 text-platinum-400 max-w-lg mx-auto">הצטרפו לקהילת GGClube וקבלו גישה למערכת המלאה.</p>
           <div className="mt-8">
-            <a href="/apply/player"><Button variant="primary" size="xl">Join as Player <ArrowRight className="w-5 h-5" /></Button></a>
+            <a href="/apply/player"><Button variant="primary" size="xl">הצטרפות כשחקן <ArrowLeft className="w-5 h-5" /></Button></a>
           </div>
         </div>
       </section>
