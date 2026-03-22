@@ -1,6 +1,6 @@
 {
   "installCommand": "pnpm install",
-  "buildCommand": "pnpm build:union",
-  "outputDirectory": "apps/union/.next",
+  "buildCommand": "pnpm build:news",
+  "outputDirectory": "apps/news/.next",
   "framework": "nextjs"
 }
