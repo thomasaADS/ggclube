@@ -1,317 +1,410 @@
-import { Button, Card, CardContent, Section, SectionLabel, SectionTitle, SectionDescription, Badge } from "@ggclube/ui";
-import { Shield, Users, BookOpen, Newspaper, ChevronRight, CheckCircle, ArrowLeft, Globe, Award, Lock, FileCheck, Sparkles, Eye, Scale, Phone, Download, MessageCircle, Trophy, Zap, Star, Clock, Headphones } from "lucide-react";
+import { Badge } from "@ggclube/ui";
+import { Shield, Users, CheckCircle, ArrowLeft, Lock, Download, MessageCircle, Trophy, Zap, Star, Clock, Headphones, BookOpen, Newspaper } from "lucide-react";
 import Image from "next/image";
+
+function RedLine() {
+  return <div className="h-[2px] bg-gradient-to-r from-transparent via-club-red-600/40 to-transparent" />;
+}
 
 export default function HomePage() {
   return (
     <>
-      {/* === CINEMATIC HERO === */}
-      <section className="relative min-h-[95vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0 bg-obsidian-950" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(198,40,40,0.12)_0%,_transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_rgba(212,160,23,0.06)_0%,_transparent_40%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,_rgba(198,40,40,0.05)_0%,_transparent_30%)]" />
-        <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-club-red-600/30 to-transparent" />
+      {/* ===== HERO WITH IMAGE ===== */}
+      <section className="relative min-h-[92vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img src="/hero-main.jpg" alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-l from-obsidian-950 via-obsidian-950/85 to-obsidian-950/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-obsidian-950 via-transparent to-obsidian-950/30" />
+        </div>
 
-        {/* Subtle pattern */}
-        <div className="absolute inset-0 opacity-[0.015]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.4) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
-
-        <div className="relative mx-auto max-w-7xl px-6 py-24 w-full">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              {/* Logo Badge */}
-              <div className="flex items-center gap-4 mb-10">
-                <Image src="/ggclub-logo.png" alt="ClubGG" width={56} height={56} className="rounded-xl" />
-                <div>
-                  <h2 className="text-2xl font-bold text-ivory-50">ClubGG האיחוד</h2>
-                  <p className="text-xs text-club-gold-400 tracking-wide">הקהילה הרשמית של שחקני הפוקר בישראל</p>
-                </div>
-              </div>
-
-              <h1 className="text-4xl md:text-5xl lg:text-[3.75rem] font-black text-ivory-50 leading-[1.15]">
-                ברוכים הבאים לעולם{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-l from-club-red-400 via-club-red-500 to-club-gold-400">הפוקר האמיתי</span>
-              </h1>
-
-              <p className="mt-6 text-xl text-platinum-300 leading-relaxed max-w-lg">
-                הפלטפורמה המובילה בישראל עם סוכנים מאומתים, שולחנות פעילים 24/7, בונוסים שווים וקהילה אמינה. כל מה שצריך — במקום אחד.
-              </p>
-
-              <div className="mt-10 flex flex-col sm:flex-row gap-4">
-                <a href="https://api.whatsapp.com/send/?phone=%2B972525780821&text=היי, אשמח להצטרף ל-ClubGG" target="_blank" rel="noopener noreferrer">
-                  <Button variant="primary" size="xl" className="bg-[#25D366] hover:bg-[#1fb855] text-white shadow-[0_0_25px_rgba(37,211,102,0.2)] hover:shadow-[0_0_35px_rgba(37,211,102,0.3)]">
-                    <MessageCircle className="w-5 h-5" />
-                    דברו עם סוכן בוואטסאפ
-                  </Button>
-                </a>
-                <a href="/apply/agent">
-                  <Button variant="outline" size="xl" className="border-club-red-600/50 text-club-red-400 hover:border-club-red-500 hover:bg-club-red-900/20">
-                    הגשת מועמדות כסוכן
-                    <ArrowLeft className="w-5 h-5" />
-                  </Button>
-                </a>
-              </div>
-
-              {/* Stats */}
-              <div className="mt-14 grid grid-cols-3 gap-6">
-                {[
-                  { value: "200+", label: "שחקנים פעילים" },
-                  { value: "24/7", label: "שולחנות פתוחים" },
-                  { value: "50%", label: "בונוס הפקדה" },
-                ].map((s) => (
-                  <div key={s.label} className="p-4 rounded-xl bg-obsidian-800/40 border border-graphite-700/30 text-center">
-                    <p className="text-2xl font-black text-club-gold-400">{s.value}</p>
-                    <p className="text-xs text-platinum-500 mt-1">{s.label}</p>
-                  </div>
-                ))}
+        <div className="relative mx-auto max-w-7xl px-6 py-28 w-full">
+          <div className="max-w-2xl">
+            <div className="flex items-center gap-3 mb-8">
+              <Image src="/logo-icon.png" alt="ClubGG" width={44} height={44} className="rounded-xl shadow-lg" />
+              <div>
+                <p className="text-xl font-black text-white leading-tight">ClubGG Union</p>
+                <p className="text-[11px] text-club-gold-400 font-medium">הקהילה הרשמית של שחקני הפוקר בישראל</p>
               </div>
             </div>
 
-            {/* Right - App Preview */}
-            <div className="hidden lg:flex justify-center">
-              <div className="relative">
-                <div className="absolute -inset-8 bg-gradient-to-br from-club-red-900/30 via-club-gold-700/10 to-transparent rounded-[3rem] blur-2xl" />
-                <div className="relative rounded-3xl border border-graphite-700/40 bg-obsidian-900/60 backdrop-blur p-8 max-w-sm">
-                  <div className="text-center mb-6">
-                    <Image src="/ggclub-logo.png" alt="ClubGG" width={72} height={72} className="rounded-2xl mx-auto mb-4" />
-                    <h3 className="text-xl font-bold text-ivory-50">ClubGG Poker</h3>
-                    <p className="text-sm text-platinum-400 mt-1">הורידו את האפליקציה</p>
-                  </div>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.08] drop-shadow-lg">
+              ברוכים הבאים<br />
+              לעולם הפוקר<br />
+              <span className="text-club-gold-400">האמיתי</span>
+            </h1>
 
-                  <div className="space-y-3">
-                    {[
-                      { img: "/download-google.webp", label: "Google Play" },
-                      { img: "/download-appstore.webp", label: "App Store" },
-                      { img: "/download-windows.webp", label: "Windows" },
-                    ].map((dl) => (
-                      <a key={dl.label} href="#" className="block group">
-                        <div className="flex items-center justify-center p-3 rounded-xl bg-obsidian-800/60 border border-graphite-700/30 hover:border-club-gold-600/30 transition-all">
-                          <img src={dl.img} alt={dl.label} className="h-10 object-contain" />
-                        </div>
-                      </a>
-                    ))}
-                  </div>
+            <p className="mt-5 text-lg text-white/80 leading-relaxed max-w-lg">
+              סוכנים מאומתים, שולחנות פעילים 24/7, בונוסים שווים וקהילה אמינה. הכל במקום אחד.
+            </p>
 
-                  <div className="mt-6 p-4 rounded-xl bg-club-red-900/20 border border-club-red-800/30 text-center">
-                    <p className="text-sm font-semibold text-club-red-400">🎁 בונוס 50% על ההפקדה הראשונה</p>
-                    <p className="text-xs text-platinum-500 mt-1">לשחקנים חדשים בלבד</p>
-                  </div>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a href="https://api.whatsapp.com/send/?phone=%2B972525780821&text=היי, אשמח להצטרף" target="_blank" rel="noopener noreferrer">
+                <button className="inline-flex items-center gap-2.5 h-13 px-7 rounded-xl bg-[#25D366] text-white font-bold text-[15px] hover:bg-[#1ebe5d] transition-all shadow-xl shadow-[#25D366]/25 cursor-pointer">
+                  <MessageCircle className="w-5 h-5" />
+                  דברו עם סוכן בוואטסאפ
+                </button>
+              </a>
+              <a href="/apply/agent">
+                <button className="inline-flex items-center gap-2 h-13 px-7 rounded-xl bg-white/10 backdrop-blur text-white font-bold text-[15px] hover:bg-white/20 transition-all border border-white/20 cursor-pointer">
+                  הגשת מועמדות כסוכן
+                  <ArrowLeft className="w-4 h-4" />
+                </button>
+              </a>
+            </div>
+
+            <div className="mt-12 flex flex-wrap gap-6">
+              {[
+                { icon: "🎯", label: "קהילה פעילה עם שחקנים מכל הארץ" },
+                { icon: "🕐", label: "שולחנות פתוחים מסביב לשעון" },
+                { icon: "🎁", label: "בונוס הפקדה ראשונה לשחקנים חדשים" },
+              ].map((s) => (
+                <div key={s.label} className="flex items-center gap-2">
+                  <span className="text-lg">{s.icon}</span>
+                  <p className="text-sm text-white/70">{s.label}</p>
                 </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <RedLine />
+
+      {/* ===== FEATURE CARDS WITH IMAGES ===== */}
+      <section className="bg-obsidian-950 py-16">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {[
+              { img: "/card-tables.jpg", title: "שולחנות פעילים 24/7" },
+              { img: "/card-bonus.jpg", title: "50% בונוס הפקדה" },
+              { img: "/card-cash.jpg", title: "משחקי קאש חיים" },
+              { img: "/card-platinum.jpg", title: "GGPlatinum VIP" },
+              { img: "/card-clubgg.jpg", title: "מה זה ClubGG" },
+            ].map((card) => (
+              <a key={card.title} href="#" className="group relative rounded-2xl overflow-hidden aspect-[3/4] block">
+                <img src={card.img} alt={card.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                <div className="absolute bottom-0 inset-x-0 p-4">
+                  <p className="text-sm font-bold text-white drop-shadow-lg">{card.title}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <RedLine />
+
+      {/* ===== GAME TYPES ===== */}
+      <section className="bg-obsidian-900/40 py-20 border-t border-club-red-800/20">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="text-center mb-12">
+            <p className="text-xs font-bold text-club-gold-500 tracking-wide mb-2">משחקים</p>
+            <h2 className="text-3xl sm:text-4xl font-black text-ivory-50">כל סוגי הפוקר — במקום אחד</h2>
+            <p className="mt-3 text-platinum-400">שולחנות קאש, טורנירים ועוד. כל הפורמטים, בכל הרמות.</p>
+          </div>
+          <div className="grid sm:grid-cols-3 gap-5">
+            {[
+              { img: "/banner-1.png", title: "טקסס הולדם", desc: "המשחק הקלאסי. שולחנות בכל הרמות — מיקרו ועד היי-סטייקס. זמין 24/7." },
+              { img: "/banner-2.png", title: "אומהה", desc: "PLO4, PLO5, PLO6 — כל הווריאציות. אקשן ברמה אחרת לגמרי." },
+              { img: "/banner-3.png", title: "טורנירים", desc: "MTT, SNG, סטלייטים ופרייזפולים ענקיים. טורנירים ייעודיים לקהילה." },
+            ].map((game) => (
+              <div key={game.title} className="rounded-2xl overflow-hidden group">
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img src={game.img} alt={game.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                </div>
+                <div className="bg-obsidian-800/60 p-5">
+                  <h3 className="text-lg font-bold text-ivory-50 mb-1.5">{game.title}</h3>
+                  <p className="text-sm text-platinum-400 leading-relaxed">{game.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <RedLine />
+
+      {/* ===== WHY US ===== */}
+      <section className="bg-obsidian-950 py-20 border-t border-club-red-800/20">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="text-center mb-12">
+            <p className="text-xs font-bold text-club-gold-500 tracking-wide mb-2">למה ClubGG Union</p>
+            <h2 className="text-3xl sm:text-4xl font-black text-ivory-50">לא סתם עוד קלאב פוקר</h2>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {[
+              { icon: Shield, title: "סוכנים מאומתים", desc: "כל סוכן עובר בדיקה. יודעים בדיוק עם מי עובדים." },
+              { icon: Clock, title: "שולחנות 24/7", desc: "קאש וטורנירים מסביב לשעון. תמיד יש משחק." },
+              { icon: Headphones, title: "תמיכה בעברית", desc: "צוות ישראלי בוואטסאפ, בלי בירוקרטיה." },
+              { icon: Zap, title: "בונוסים שווים", desc: "50% הפקדה ראשונה ופרומואים שוטפים." },
+              { icon: Lock, title: "אבטחה מלאה", desc: "הגנה על הכסף שלכם עם RNG מאושר." },
+              { icon: Star, title: "GGPlatinum", desc: "חברות VIP עם הטבות בלעדיות." },
+              { icon: Users, title: "קהילה ישראלית", desc: "שחקנים מכל הארץ. שולחנות ישראלים, אווירה ישראלית." },
+              { icon: Trophy, title: "טורנירים ייעודיים", desc: "טורנירים לקהילה עם פרייזפולים מכובדים." },
+            ].map((item) => (
+              <div key={item.title} className="p-5 rounded-xl border border-graphite-700/30 bg-obsidian-800/20 hover:bg-obsidian-800/40 hover:border-club-red-800/30 transition-all">
+                <item.icon className="w-6 h-6 text-club-gold-500 mb-3" />
+                <h4 className="text-sm font-bold text-ivory-50 mb-1">{item.title}</h4>
+                <p className="text-xs text-platinum-400 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <RedLine />
+
+      {/* ===== SECURITY + FEATURES ===== */}
+      <section className="bg-obsidian-900/30 py-20 border-t border-club-red-800/20">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="relative rounded-2xl overflow-hidden aspect-[4/3] group">
+              <img src="/security.jpg" alt="אבטחת שחקן" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div className="absolute inset-0 bg-gradient-to-t from-obsidian-950/90 via-obsidian-950/30 to-transparent" />
+              <div className="absolute bottom-0 inset-x-0 p-8">
+                <p className="text-xs font-bold text-club-gold-400 mb-2">אבטחה</p>
+                <h3 className="text-2xl font-bold text-white mb-2">אבטחת השחקן</h3>
+                <p className="text-sm text-white/70">מערכת אבטחה מתקדמת, RNG מאושר, והגנה מלאה על הכספים והמידע שלכם.</p>
+              </div>
+            </div>
+            <div className="relative rounded-2xl overflow-hidden aspect-[4/3] group">
+              <img src="/features.jpg" alt="פיצ׳רים מיוחדים" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div className="absolute inset-0 bg-gradient-to-t from-obsidian-950/90 via-obsidian-950/30 to-transparent" />
+              <div className="absolute bottom-0 inset-x-0 p-8">
+                <p className="text-xs font-bold text-club-gold-400 mb-2">פיצ׳רים</p>
+                <h3 className="text-2xl font-bold text-white mb-2">פיצ׳רים מיוחדים</h3>
+                <p className="text-sm text-white/70">SmartHUD, PokerCraft, סטטיסטיקות מתקדמות וכלי ניתוח שיעזרו לכם להשתפר.</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* === GAME TYPES === */}
-      <Section className="border-t border-graphite-800">
-        <div className="text-center max-w-2xl mx-auto mb-14">
-          <span className="text-xs font-semibold text-club-gold-500 uppercase tracking-[0.15em] mb-3 block">משחקים</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-ivory-50 tracking-tight">כל סוגי הפוקר — במקום אחד</h2>
-          <p className="mt-4 text-platinum-400">שולחנות קאש, טורנירים ועוד. כל הפורמטים, בכל הרמות.</p>
-        </div>
+      <RedLine />
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {[
-            { img: "/texas-holdem.png", title: "טקסס הולדם", desc: "המשחק הקלאסי. שולחנות בכל הרמות, מיקרו ועד היי-סטייקס. זמין 24/7.", tag: "הכי פופולרי" },
-            { img: "/omaha.png", title: "אומהה", desc: "PLO4, PLO5, PLO6 — כל הווריאציות. אקשן ברמה אחרת לגמרי.", tag: "אקשן מלא" },
-            { img: "/texas-holdem.png", title: "טורנירים", desc: "MTT, SNG, סטלייטים ופרייזפולים ענקיים. טורנירים ייעודיים לקהילה הישראלית.", tag: "פרסים גדולים" },
-          ].map((game) => (
-            <div key={game.title} className="group relative rounded-2xl border border-graphite-700 bg-obsidian-800/30 overflow-hidden hover:border-club-red-800/50 transition-all duration-500">
-              <div className="absolute top-4 right-4 z-10">
-                <Badge variant="premium" className="bg-club-red-900/60 text-club-red-300 border-club-red-800/40">{game.tag}</Badge>
-              </div>
-              <div className="aspect-[4/3] bg-obsidian-800 flex items-center justify-center p-8">
-                <img src={game.img} alt={game.title} className="w-32 h-32 object-contain group-hover:scale-110 transition-transform duration-500" />
-              </div>
-              <div className="p-6">
-                <h3 className="text-lg font-bold text-ivory-50 mb-2">{game.title}</h3>
-                <p className="text-sm text-platinum-400 leading-relaxed">{game.desc}</p>
+      {/* ===== AGENTS ===== */}
+      <section className="bg-obsidian-950 py-20 border-t border-club-red-800/20">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div>
+              <p className="text-xs font-bold text-club-gold-500 tracking-wide mb-2">מערכת הסוכנים</p>
+              <h2 className="text-3xl sm:text-4xl font-black text-ivory-50 leading-tight">סוכנים מאומתים.<br />שירות אמיתי.</h2>
+              <p className="mt-4 text-platinum-400 leading-relaxed">
+                כל סוכן עובר תהליך אימות רציני — בדיקת רקע, המלצות ועמידה בסטנדרטים. ככה אתם יודעים שאתם עובדים עם מישהו אמין.
+              </p>
+              <ul className="mt-5 space-y-2.5">
+                {["תהליך אימות מתועד ומפוקח", "תג סטטוס פומבי — מאומת / בבדיקה", "מעקב ציות שוטף", "אפשרות דיווח לקהילה", "תמיכה ישירה בוואטסאפ"].map((item) => (
+                  <li key={item} className="flex items-center gap-2.5 text-sm text-platinum-300">
+                    <CheckCircle className="w-4 h-4 text-club-gold-500 shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-7 flex gap-3">
+                <a href="/for-agents">
+                  <button className="h-11 px-6 rounded-xl bg-club-red-600 text-white text-sm font-bold hover:bg-club-red-500 transition-colors inline-flex items-center gap-2 cursor-pointer">
+                    למידע לסוכנים <ArrowLeft className="w-4 h-4" />
+                  </button>
+                </a>
+                <a href="/how-verification-works">
+                  <button className="h-11 px-6 rounded-xl text-club-gold-400 text-sm font-bold hover:bg-obsidian-800/60 transition-colors cursor-pointer">
+                    איך האימות עובד
+                  </button>
+                </a>
               </div>
             </div>
-          ))}
-        </div>
-      </Section>
-
-      {/* === WHY US === */}
-      <Section className="border-t border-graphite-800 bg-obsidian-900/20">
-        <div className="text-center max-w-2xl mx-auto mb-14">
-          <span className="text-xs font-semibold text-club-gold-500 uppercase tracking-[0.15em] mb-3 block">למה ClubGG האיחוד</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-ivory-50 tracking-tight">לא סתם עוד קלאב פוקר</h2>
-          <p className="mt-4 text-platinum-400">בנינו את הרשת על בסיס אמון, שקיפות ושירות — לא רק על בסיס משחק.</p>
-        </div>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {[
-            { icon: Shield, title: "סוכנים מאומתים", desc: "כל סוכן עובר תהליך בדיקה מקיף. אתם יודעים בדיוק עם מי אתם עובדים." },
-            { icon: Clock, title: "שולחנות 24/7", desc: "שולחנות קאש וטורנירים פעילים מסביב לשעון. תמיד יש משחק שמחכה לכם." },
-            { icon: Headphones, title: "תמיכה בעברית", desc: "צוות תמיכה ישראלי שזמין בכל שעה. בעברית, בוואטסאפ, בלי בירוקרטיה." },
-            { icon: Zap, title: "בונוסים שווים", desc: "50% על הפקדה ראשונה, בונוסי ריבאי, ופרומואים שוטפים לשחקנים פעילים." },
-            { icon: Lock, title: "אבטחה מלאה", desc: "הגנה על הכסף שלכם עם מערכת אבטחה מתקדמת ו-RNG מאושר." },
-            { icon: Star, title: "GGPlatinum", desc: "חברות פרימיום עם הטבות בלעדיות, טורנירים סגורים ושירות VIP." },
-            { icon: Users, title: "קהילה ישראלית", desc: "מעל 200 שחקנים פעילים. שולחנות ישראלים, שפה ישראלית, תרבות ישראלית." },
-            { icon: Trophy, title: "טורנירים ייעודיים", desc: "טורנירים שמותאמים לקהילה הישראלית עם פרייזפולים מכובדים." },
-          ].map((item) => (
-            <div key={item.title} className="p-5 rounded-xl border border-graphite-700/50 bg-obsidian-800/30 hover:border-club-red-800/30 transition-all duration-300">
-              <div className="w-10 h-10 rounded-lg bg-club-red-900/30 border border-club-red-800/30 flex items-center justify-center mb-4">
-                <item.icon className="w-5 h-5 text-club-gold-500" />
-              </div>
-              <h4 className="text-sm font-bold text-ivory-50 mb-1.5">{item.title}</h4>
-              <p className="text-xs text-platinum-400 leading-relaxed">{item.desc}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      {/* === AGENT SYSTEM === */}
-      <Section className="border-t border-graphite-800">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <span className="text-xs font-semibold text-club-gold-500 uppercase tracking-[0.15em] mb-4 block">מערכת הסוכנים</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-ivory-50 tracking-tight leading-tight">סוכנים מאומתים.<br />שירות אמיתי.</h2>
-            <p className="mt-5 text-platinum-400 leading-relaxed">
-              ב-ClubGG האיחוד כל סוכן עובר תהליך אימות רציני. אנחנו בודקים רקע, המלצות ועמידה בסטנדרטים. ככה אתם יודעים שאתם עובדים עם מישהו אמין — לא סתם כרטיס ביקור בטלגרם.
-            </p>
-
-            <ul className="mt-6 space-y-3">
+            <div className="space-y-3">
               {[
-                "תהליך אימות מתועד ומפוקח",
-                "תג סטטוס פומבי — מאומת / בבדיקה / לא מאומת",
-                "מעקב ציות שוטף",
-                "אפשרות דיווח לקהילה",
-                "תמיכה ישירה בוואטסאפ",
-              ].map((item) => (
-                <li key={item} className="flex items-start gap-3 text-sm text-platinum-300">
-                  <CheckCircle className="w-4 h-4 text-club-gold-500 shrink-0 mt-0.5" />
-                  {item}
-                </li>
+                { name: "סוכן — תל אביב", id: "AG-0142", status: "מאומת", badge: "verified" as const },
+                { name: "סוכן — ירושלים", id: "AG-0198", status: "מאומת", badge: "verified" as const },
+                { name: "סוכן — חיפה", id: "AG-0231", status: "בבדיקה", badge: "under-review" as const },
+                { name: "סוכן — ראשון לציון", id: "AG-0267", status: "מאומת", badge: "verified" as const },
+                { name: "סוכן — באר שבע", id: "AG-0289", status: "מאומת", badge: "verified" as const },
+              ].map((agent) => (
+                <div key={agent.id} className="flex items-center justify-between p-4 rounded-xl bg-obsidian-800/30 border border-graphite-700/30 hover:border-graphite-600/50 transition-all">
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-full bg-graphite-700/50 flex items-center justify-center">
+                      <Users className="w-4 h-4 text-platinum-500" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-ivory-100">{agent.name}</p>
+                      <p className="text-[10px] text-platinum-500">{agent.id}</p>
+                    </div>
+                  </div>
+                  <Badge variant={agent.badge}>{agent.status}</Badge>
+                </div>
               ))}
-            </ul>
-
-            <div className="mt-8 flex gap-4">
-              <a href="/for-agents">
-                <Button variant="primary" size="lg" className="bg-club-red-600 hover:bg-club-red-500">
-                  למידע לסוכנים <ArrowLeft className="w-4 h-4" />
-                </Button>
-              </a>
-              <a href="/how-verification-works">
-                <Button variant="ghost" size="lg" className="text-club-gold-400 hover:text-club-gold-300">
-                  איך האימות עובד
-                </Button>
-              </a>
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* Agent Status Cards */}
-          <div className="space-y-3">
+      <RedLine />
+
+      {/* ===== HOW TO JOIN — WITH SCREENSHOTS ===== */}
+      <section className="bg-obsidian-900/30 py-20 border-t border-club-red-800/20">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="text-center mb-14">
+            <p className="text-xs font-bold text-club-gold-500 tracking-wide mb-2">איך מצטרפים</p>
+            <h2 className="text-3xl sm:text-4xl font-black text-ivory-50">שלושה צעדים — ואתם בפנים</h2>
+            <p className="mt-3 text-platinum-400">תהליך הרשמה מהיר ופשוט. תוך דקות אתם על השולחן.</p>
+          </div>
+          <div className="grid sm:grid-cols-3 gap-8">
             {[
-              { name: "סוכן — תל אביב", id: "AG-0142", status: "מאומת", badge: "verified" as const, since: "ינואר 2025" },
-              { name: "סוכן — ירושלים", id: "AG-0198", status: "מאומת", badge: "verified" as const, since: "מרץ 2025" },
-              { name: "סוכן — חיפה", id: "AG-0231", status: "בבדיקה", badge: "under-review" as const, since: "פברואר 2026" },
-              { name: "סוכן — ראשון לציון", id: "AG-0267", status: "מאומת", badge: "verified" as const, since: "יוני 2025" },
-              { name: "סוכן — באר שבע", id: "AG-0289", status: "מאומת", badge: "verified" as const, since: "אוגוסט 2025" },
-            ].map((agent) => (
-              <div key={agent.id} className="flex items-center justify-between p-4 rounded-xl bg-obsidian-800/40 border border-graphite-700/30 hover:border-club-red-800/30 transition-all">
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full bg-graphite-700/60 flex items-center justify-center">
-                    <Users className="w-4 h-4 text-platinum-500" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-ivory-100">{agent.name}</p>
-                    <p className="text-[10px] text-platinum-500">{agent.id} • מאז {agent.since}</p>
-                  </div>
+              { step: "01", img: "/step1.jpeg", title: "הרשמה מהירה", desc: "הורידו את האפליקציה ופתחו חשבון. לוקח פחות מ-2 דקות." },
+              { step: "02", img: "/step2.jpeg", title: "הצטרפו לקלאב", desc: "התחברו לקלאב הישראלי עם קוד ייעודי. הסוכן ידריך אתכם." },
+              { step: "03", img: "/step3.jpeg", title: "שחקו ותהנו", desc: "בחרו שולחן, הפקידו ותתחילו לשחק. בונוס 50% מחכה!" },
+            ].map((s) => (
+              <div key={s.step} className="text-center">
+                <div className="rounded-2xl overflow-hidden mb-6 mx-auto max-w-[200px] shadow-2xl shadow-black/40 border border-graphite-700/30">
+                  <img src={s.img} alt={s.title} className="w-full aspect-[9/16] object-cover" />
                 </div>
-                <Badge variant={agent.badge}>{agent.status}</Badge>
+                <span className="text-3xl font-black text-club-gold-500/30">{s.step}</span>
+                <h4 className="text-lg font-bold text-ivory-50 mt-1 mb-2">{s.title}</h4>
+                <p className="text-sm text-platinum-400 leading-relaxed max-w-[250px] mx-auto">{s.desc}</p>
               </div>
             ))}
           </div>
-        </div>
-      </Section>
-
-      {/* === HOW TO JOIN === */}
-      <Section className="border-t border-graphite-800 bg-obsidian-900/30">
-        <div className="text-center max-w-2xl mx-auto mb-14">
-          <span className="text-xs font-semibold text-club-gold-500 uppercase tracking-[0.15em] mb-3 block">איך מצטרפים</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-ivory-50 tracking-tight">שלושה צעדים — ואתם בפנים</h2>
-          <p className="mt-4 text-platinum-400">תהליך הרשמה מהיר ופשוט. תוך דקות אתם על השולחן.</p>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-8">
-          {[
-            { step: "01", title: "הרשמה מהירה", desc: "הורידו את האפליקציה ופתחו חשבון. התהליך לוקח פחות מ-2 דקות.", icon: Download },
-            { step: "02", title: "הצטרפו לקלאב", desc: "התחברו לקלאב הישראלי שלנו עם קוד ייעודי. הסוכן שלנו ידריך אתכם.", icon: Users },
-            { step: "03", title: "שחקו ותהנו", desc: "בחרו שולחן, הפקידו ותתחילו לשחק. בונוס 50% מחכה לכם על ההפקדה הראשונה.", icon: Trophy },
-          ].map((s) => (
-            <div key={s.step} className="relative p-8 rounded-2xl border border-graphite-700/50 bg-obsidian-800/20 text-center">
-              <span className="text-6xl font-black text-graphite-700/40 absolute top-4 left-4">{s.step}</span>
-              <div className="relative">
-                <div className="w-14 h-14 rounded-xl bg-club-red-900/30 border border-club-red-800/30 flex items-center justify-center mx-auto mb-5">
-                  <s.icon className="w-7 h-7 text-club-gold-500" />
-                </div>
-                <h4 className="text-lg font-bold text-ivory-50 mb-3">{s.title}</h4>
-                <p className="text-sm text-platinum-400 leading-relaxed">{s.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-10 text-center">
-          <a href="https://api.whatsapp.com/send/?phone=%2B972525780821&text=היי, אשמח להצטרף ל-ClubGG" target="_blank" rel="noopener noreferrer">
-            <Button variant="primary" size="xl" className="bg-[#25D366] hover:bg-[#1fb855] text-white">
-              <MessageCircle className="w-5 h-5" />
-              התחילו עכשיו — דברו עם סוכן
-            </Button>
-          </a>
-        </div>
-      </Section>
-
-      {/* === ECOSYSTEM === */}
-      <Section className="border-t border-graphite-800">
-        <span className="text-xs font-semibold text-platinum-500 uppercase tracking-[0.15em] mb-8 block">המערכת שלנו</span>
-        <div className="grid md:grid-cols-2 gap-6">
-          <a href={process.env.NEXT_PUBLIC_NEWS_URL || "https://news.ggclube.com"} className="group">
-            <div className="h-full rounded-2xl border border-graphite-700 bg-obsidian-800/30 p-8 hover:border-emerald-800/50 transition-all duration-500">
-              <Newspaper className="w-8 h-8 text-emerald-400 mb-5" />
-              <h3 className="text-xl font-bold text-ivory-50 mb-2">GGClube News</h3>
-              <p className="text-sm text-platinum-400 leading-relaxed mb-4">סיקור טורנירים, דירוגים, מאגר סוכנים מאומתים וניתוח אסטרטגי — מתעדכן יומית.</p>
-              <span className="text-sm text-emerald-400 group-hover:underline">לחדשות ←</span>
-            </div>
-          </a>
-          <a href={process.env.NEXT_PUBLIC_ACADEMY_URL || "https://academy.ggclube.com"} className="group">
-            <div className="h-full rounded-2xl border border-graphite-700 bg-obsidian-800/30 p-8 hover:border-emerald-800/50 transition-all duration-500">
-              <BookOpen className="w-8 h-8 text-emerald-400 mb-5" />
-              <h3 className="text-xl font-bold text-ivory-50 mb-2">GGClube Academy</h3>
-              <p className="text-sm text-platinum-400 leading-relaxed mb-4">קורסים מובנים, אימון מקצועי ומסלולי למידה — לכל הרמות.</p>
-              <span className="text-sm text-emerald-400 group-hover:underline">ללמידה ←</span>
-            </div>
-          </a>
-        </div>
-      </Section>
-
-      {/* === FINAL CTA === */}
-      <section className="border-t border-graphite-800 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-club-red-900/10 via-transparent to-transparent" />
-        <div className="relative mx-auto max-w-7xl px-6 py-24 text-center">
-          <Image src="/ggclub-logo.png" alt="ClubGG" width={64} height={64} className="rounded-xl mx-auto mb-6" />
-          <h2 className="text-3xl md:text-4xl font-bold text-ivory-50 tracking-tight">מוכנים להצטרף?</h2>
-          <p className="mt-4 text-lg text-platinum-400 max-w-xl mx-auto">
-            הצטרפו לקהילה הכי אמינה בישראל. סוכנים מאומתים, בונוסים שווים, ותמיכה בעברית 24/7.
-          </p>
-          <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
-            <a href="https://api.whatsapp.com/send/?phone=%2B972525780821&text=היי, אשמח להצטרף ל-ClubGG" target="_blank" rel="noopener noreferrer">
-              <Button variant="primary" size="xl" className="bg-[#25D366] hover:bg-[#1fb855] text-white">
+          <div className="mt-12 text-center">
+            <a href="https://api.whatsapp.com/send/?phone=%2B972525780821&text=היי, אשמח להצטרף" target="_blank" rel="noopener noreferrer">
+              <button className="inline-flex items-center gap-2.5 h-13 px-8 rounded-xl bg-[#25D366] text-white font-bold text-[15px] hover:bg-[#1ebe5d] transition-all shadow-xl shadow-[#25D366]/25 cursor-pointer">
                 <MessageCircle className="w-5 h-5" />
-                וואטסאפ עם סוכן
-              </Button>
-            </a>
-            <a href="/apply/agent">
-              <Button variant="outline" size="xl" className="border-club-red-600/50 text-club-red-400 hover:border-club-red-500">
-                הגשת מועמדות כסוכן
-              </Button>
+                התחילו עכשיו — דברו עם סוכן
+              </button>
             </a>
           </div>
-          <p className="mt-8 text-[10px] text-platinum-500 max-w-md mx-auto">
-            על השחקן להיות בגיל 21+. ClubGG האיחוד היא פלטפורמת קהילה ותוכן. השימוש באתר כפוף ל<a href="/legal/terms" className="hover:text-platinum-300 underline">תנאי השימוש</a> ו<a href="/legal/privacy" className="hover:text-platinum-300 underline">מדיניות הפרטיות</a>.
+        </div>
+      </section>
+
+      <RedLine />
+
+      {/* ===== DOWNLOAD APP ===== */}
+      <section className="bg-obsidian-950 py-20 border-t border-club-red-800/20">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="rounded-2xl border border-graphite-700/40 bg-obsidian-800/30 p-10 md:p-14">
+            <div className="grid md:grid-cols-2 gap-10 items-center">
+              <div>
+                <Image src="/logo-icon.png" alt="ClubGG" width={56} height={56} className="rounded-2xl mb-5" />
+                <h2 className="text-3xl font-black text-ivory-50">הורידו את ClubGG</h2>
+                <p className="mt-3 text-platinum-400 leading-relaxed">זמין לאנדרואיד, אייפון ומחשב. הרשמו תוך דקות והתחילו לשחק עם הקהילה הישראלית.</p>
+                <div className="mt-6 p-4 rounded-xl bg-club-red-900/20 border border-club-red-800/20 inline-block">
+                  <p className="text-sm font-bold text-club-red-400">🎁 בונוס 50% על ההפקדה הראשונה לשחקנים חדשים</p>
+                </div>
+              </div>
+              <div className="flex flex-col gap-3 max-w-[280px] md:mx-auto">
+                {[
+                  { img: "/download-google.webp", label: "Google Play" },
+                  { img: "/download-appstore.webp", label: "App Store" },
+                  { img: "/download-windows.webp", label: "Windows" },
+                ].map((dl) => (
+                  <a key={dl.label} href="#" className="flex items-center justify-center p-3 rounded-xl bg-obsidian-900/60 border border-graphite-700/40 hover:border-graphite-500/50 transition-all">
+                    <img src={dl.img} alt={dl.label} className="h-10 object-contain" />
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <RedLine />
+
+      {/* ===== AMBASSADORS ===== */}
+      <section className="border-t border-club-red-800/20 relative overflow-hidden">
+        <div className="relative h-[400px]">
+          <img src="/ambassadors.jpg" alt="שגרירי ClubGG" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-t from-obsidian-950 via-obsidian-950/50 to-transparent" />
+          <div className="absolute bottom-0 inset-x-0 p-10 md:p-16">
+            <div className="mx-auto max-w-7xl">
+              <p className="text-xs font-bold text-club-gold-400 mb-2">קהילה</p>
+              <h2 className="text-3xl font-black text-white">שגרירי ClubGG</h2>
+              <p className="mt-2 text-white/70 max-w-lg">שחקנים מקצועיים ומשפיענים שמייצגים את הקהילה שלנו ברמה הגבוהה ביותר.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <RedLine />
+
+      {/* ===== FAQ ===== */}
+      <section className="bg-obsidian-950 py-20 border-t border-club-red-800/20">
+        <div className="mx-auto max-w-3xl px-6">
+          <div className="text-center mb-12">
+            <p className="text-xs font-bold text-club-gold-500 tracking-wide mb-2">שאלות נפוצות</p>
+            <h2 className="text-3xl font-black text-ivory-50">שאלות ותשובות</h2>
+          </div>
+          <div className="space-y-3">
+            {[
+              { q: "מה זה ClubGG?", a: "ClubGG היא אפליקציית פוקר חברתית מבית GGPoker. היא מאפשרת לשחק פוקר בקלאבים פרטיים עם חברים ושחקנים מכל העולם." },
+              { q: "האם ClubGG Union זה אתר הימורים?", a: "לא. ClubGG Union היא פלטפורמת קהילה ותוכן. אנחנו לא מפעילים שירותי הימורים ולא מקבלים הפקדות. אנחנו מחברים שחקנים לסוכנים מאומתים." },
+              { q: "איך מצטרפים?", a: "מורידים את האפליקציה, יוצרים חשבון, ומצטרפים לקלאב הישראלי דרך קוד שתקבלו מהסוכן. התהליך לוקח 2 דקות." },
+              { q: "מה זה סוכן מאומת?", a: "סוכן שעבר את תהליך האימות שלנו — בדיקת רקע, המלצות מהקהילה ועמידה בסטנדרטים. הסטטוס שלו פומבי ושקוף." },
+              { q: "מה הבונוסים?", a: "שחקנים חדשים מקבלים 50% בונוס על ההפקדה הראשונה. בנוסף יש בונוסי ריבאי ופרומואים שוטפים." },
+              { q: "האם צריך להיות בגיל מסוים?", a: "כן, על השחקן להיות בגיל 21+." },
+              { q: "איך יוצרים קשר?", a: "דרך וואטסאפ בלחיצה על הכפתור באתר, או דרך דף צור קשר." },
+            ].map((faq) => (
+              <details key={faq.q} className="group rounded-xl border border-graphite-700/30 bg-obsidian-800/20 overflow-hidden">
+                <summary className="flex items-center justify-between p-5 cursor-pointer hover:bg-obsidian-800/40 transition-colors list-none">
+                  <span className="text-sm font-semibold text-ivory-100">{faq.q}</span>
+                  <span className="text-platinum-500 group-open:rotate-45 transition-transform text-xl leading-none mr-1">+</span>
+                </summary>
+                <div className="px-5 pb-5 pt-0">
+                  <p className="text-sm text-platinum-400 leading-relaxed">{faq.a}</p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <RedLine />
+
+      {/* ===== ECOSYSTEM ===== */}
+      <section className="bg-obsidian-900/30 py-16 border-t border-club-red-800/20">
+        <div className="mx-auto max-w-7xl px-6">
+          <p className="text-xs font-bold text-platinum-500 tracking-wide mb-6">עוד מ-ClubGG</p>
+          <div className="grid sm:grid-cols-2 gap-5">
+            <a href={process.env.NEXT_PUBLIC_NEWS_URL || "#"} className="group p-6 rounded-xl border border-graphite-700/30 bg-obsidian-800/20 hover:border-emerald-800/40 transition-all">
+              <Newspaper className="w-6 h-6 text-emerald-400 mb-3" />
+              <h3 className="text-base font-bold text-ivory-50 mb-1">חדשות הפוקר</h3>
+              <p className="text-xs text-platinum-400">סיקור טורנירים, דירוגים ומאגר סוכנים מאומתים.</p>
+            </a>
+            <a href={process.env.NEXT_PUBLIC_ACADEMY_URL || "#"} className="group p-6 rounded-xl border border-graphite-700/30 bg-obsidian-800/20 hover:border-emerald-800/40 transition-all">
+              <BookOpen className="w-6 h-6 text-emerald-400 mb-3" />
+              <h3 className="text-base font-bold text-ivory-50 mb-1">אקדמיית הפוקר</h3>
+              <p className="text-xs text-platinum-400">קורסים מובנים, אימון מקצועי ומסלולי למידה.</p>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <RedLine />
+
+      {/* ===== FINAL CTA ===== */}
+      <section className="relative overflow-hidden border-t border-club-red-800/20">
+        <div className="absolute inset-0 bg-gradient-to-b from-club-red-900/10 to-transparent" />
+        <div className="relative mx-auto max-w-7xl px-6 py-20 text-center">
+          <Image src="/logo-icon.png" alt="ClubGG" width={48} height={48} className="rounded-xl mx-auto mb-5" />
+          <h2 className="text-3xl font-black text-ivory-50">מוכנים להצטרף?</h2>
+          <p className="mt-3 text-platinum-400 max-w-md mx-auto">
+            סוכנים מאומתים, בונוסים שווים, ותמיכה בעברית 24/7.
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <a href="https://api.whatsapp.com/send/?phone=%2B972525780821&text=היי, אשמח להצטרף" target="_blank" rel="noopener noreferrer">
+              <button className="inline-flex items-center gap-2.5 h-12 px-7 rounded-xl bg-[#25D366] text-white font-bold text-sm hover:bg-[#1ebe5d] transition-colors shadow-lg shadow-[#25D366]/20 cursor-pointer">
+                <MessageCircle className="w-4 h-4" />
+                וואטסאפ עם סוכן
+              </button>
+            </a>
+            <a href="/apply/agent">
+              <button className="inline-flex items-center gap-2 h-12 px-7 rounded-xl border border-club-red-700/50 text-club-red-400 font-bold text-sm hover:bg-club-red-900/20 transition-colors cursor-pointer">
+                הגשת מועמדות כסוכן
+              </button>
+            </a>
+          </div>
+          <p className="mt-8 text-[10px] text-platinum-500/60 max-w-sm mx-auto">
+            על השחקן להיות בגיל 21+. השימוש באתר כפוף ל<a href="/legal/terms" className="underline hover:text-platinum-400">תנאי השימוש</a> ו<a href="/legal/privacy" className="underline hover:text-platinum-400">מדיניות הפרטיות</a>.
           </p>
         </div>
       </section>

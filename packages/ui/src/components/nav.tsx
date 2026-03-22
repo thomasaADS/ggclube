@@ -32,7 +32,7 @@ export function Nav({ brand, brandName, links, ctaLabel, ctaHref, logoSrc, rtl =
           {/* Logo */}
           <a href="/" className="flex items-center gap-3 group">
             {logoSrc ? (
-              <img src={logoSrc} alt={brandName} className="h-9 w-9 rounded-lg object-contain" />
+              <img src={logoSrc} alt={brandName} className="h-8 rounded-lg object-contain" />
             ) : (
               <div className="w-9 h-9 rounded-lg bg-emerald-600 flex items-center justify-center text-ivory-50 font-bold text-sm group-hover:bg-emerald-500 transition-colors">
                 GG
